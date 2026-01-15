@@ -4,20 +4,38 @@ public static class CorsExtensions
 {
     public static IServiceCollection AddCorsExtensions(
         this IServiceCollection services,
-        IConfiguration config)
+        IConfiguration config, IHostEnvironment env)
     {
         services.AddCors(options =>
         {
-            options.AddPolicy("default", policy =>
+            if (env.EnvironmentName is "Development" or "Staging")
             {
-                policy
-                    .WithOrigins(config.GetSection("Cors:Origins").Get<string[]>()!)
-                    .AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowCredentials();
-            });
+                options.AddDefaultPolicy(policy =>
+                {
+                    policy
+                        .AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            }
+            else
+            {
+                options.AddDefaultPolicy(policy =>
+                {
+                    var origins = config
+                        .GetSection("Cors:Origins")
+                        .Get<string[]>() ?? [];
+
+                    policy
+                        .WithOrigins(origins)
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials();
+                });
+            }
         });
 
         return services;
     }
+
 }
