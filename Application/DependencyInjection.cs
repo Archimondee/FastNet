@@ -1,6 +1,14 @@
-namespace Application.Users;
+using Application.Users.Create;
+using Microsoft.Extensions.DependencyInjection;
 
-public class DependencyInjection
+namespace Application;
+
+public static class DependencyInjection
 {
-	
+    public static IServiceCollection AddApplication(
+        this IServiceCollection services)
+    {
+        services.AddScoped<CreateUserHandler>();
+        return services;
+    }
 }

@@ -1,16 +1,18 @@
-namespace Application.Users;
+using FluentValidation;
+
+namespace Application.Users.Create;
 
 public sealed class CreateUserValidator
-	: AbstractValidator<CreateUserCommand>
+    : AbstractValidator<CreateUserCommand>
 {
-	public CreateUserValidator()
-	{
-		RuleFor(x => x.Email)
-			.NotEmpty()
-			.EmailAddress();
+    public CreateUserValidator()
+    {
+        RuleFor(x => x.Email)
+            .NotEmpty()
+            .EmailAddress();
 
-		RuleFor(x => x.Password)
-			.NotEmpty()
-			.MinimumLength(8);
-	}
+        RuleFor(x => x.Password)
+            .NotEmpty()
+            .MinimumLength(8);
+    }
 }

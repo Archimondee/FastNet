@@ -1,0 +1,102 @@
+2026-01-17 13:15:55.617 +07:00 [ERR] An error occurred using the connection to database 'fastapi' on server 'tcp://localhost:5432'.
+2026-01-17 20:22:04.657 +07:00 [INF] Registered 2 endpoints in 349 milliseconds.
+2026-01-17 20:22:04.820 +07:00 [INF] No validators found in the system!
+2026-01-17 20:22:55.125 +07:00 [INF] Registered 2 endpoints in 294 milliseconds.
+2026-01-17 20:22:55.252 +07:00 [INF] No validators found in the system!
+2026-01-17 20:23:13.115 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-17 20:23:13.167 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.TypeInitializationException: The type initializer for 'FastEndpoints.RequestBinder`1' threw an exception.
+ ---> System.NotSupportedException: Unable to instantiate type without a constructor! Offender: [Application.Users.Create.CreateUserCommand]
+   at FastEndpoints.BinderExtensions.<ObjectFactory>g__CompileFactory|3_0(Type t)
+   at FastEndpoints.BinderExtensions.ObjectFactory(Type type)
+   at FastEndpoints.RequestBinder`1..cctor()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at FastEndpoints.ServiceResolver.Resolve[TService]()
+   at FastEndpoints.Endpoint`2.BindRequestAsync(EndpointDefinition def, HttpContext ctx, List`1 failures, CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-01-17 20:24:41.685 +07:00 [INF] Registered 2 endpoints in 235 milliseconds.
+2026-01-17 20:24:41.894 +07:00 [INF] No validators found in the system!
+2026-01-17 20:24:50.691 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-17 20:24:55.308 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Email already exists
+   at Application.Users.Create.CreateUserHandler.Handle(CreateUserCommand command, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/Create/CreateUserHandler.cs:line 25
+   at API.Endpoints.User.CreateUserEndpoint.HandleAsync(CreateUserCommand req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/CreateUserEndpoint.cs:line 26
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-01-17 20:28:18.733 +07:00 [INF] Registered 2 endpoints in 229 milliseconds.
+2026-01-17 20:28:18.848 +07:00 [INF] No validators found in the system!
+2026-01-17 20:28:23.331 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-17 20:28:24.414 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+Shared.Commons.Exceptions.ConflictException: Email already exists
+   at Application.Users.Create.CreateUserHandler.Handle(CreateUserCommand command, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/Create/CreateUserHandler.cs:line 26
+   at API.Endpoints.User.CreateUserEndpoint.HandleAsync(CreateUserCommand req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/CreateUserEndpoint.cs:line 26
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-01-17 20:30:01.037 +07:00 [INF] Registered 2 endpoints in 444 milliseconds.
+2026-01-17 20:30:01.353 +07:00 [INF] No validators found in the system!
+2026-01-17 20:30:05.917 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-17 20:30:06.724 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+Shared.Commons.Exceptions.ConflictException: Email already exists
+   at Application.Users.Create.CreateUserHandler.Handle(CreateUserCommand command, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/Create/CreateUserHandler.cs:line 26
+   at API.Endpoints.User.CreateUserEndpoint.HandleAsync(CreateUserCommand req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/CreateUserEndpoint.cs:line 26
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-01-17 20:35:42.247 +07:00 [INF] Registered 2 endpoints in 239 milliseconds.
+2026-01-17 20:35:42.319 +07:00 [INF] No validators found in the system!
+2026-01-17 20:35:47.535 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-17 20:35:50.852 +07:00 [WRN] Application error | CONFLICT | 409 | /api/users | 136de809-86a3-4752-8598-52adddd91cf0

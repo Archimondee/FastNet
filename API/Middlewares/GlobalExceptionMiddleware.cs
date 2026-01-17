@@ -2,7 +2,10 @@ using System.Text.Json;
 using FluentValidation;
 using Serilog;
 using Shared.Commons.Error;
+using Shared.Commons.Exceptions;
 using Shared.Commons.Response;
+
+namespace API.Middlewares;
 
 public sealed class GlobalExceptionMiddleware
 {
@@ -87,6 +90,28 @@ public sealed class GlobalExceptionMiddleware
                 {
                     Code = appEx.Code,
                     Message = appEx.Message,
+                    CorrelationId = correlationId
+                }));
+
+            return;
+        }
+
+        if (exception is ConflictException ceEx)
+        {
+            Log.Warning(
+                "Application error | {Code} | {StatusCode} | {Endpoint} | {CorrelationId}",
+                ceEx.Code,
+                ceEx.StatusCode,
+                context.Request.Path,
+                correlationId);
+
+            context.Response.StatusCode = ceEx.StatusCode;
+
+            await context.Response.WriteAsync(
+                JsonSerializer.Serialize(new ApiErrorResponse
+                {
+                    Code = ceEx.Code,
+                    Message = ceEx.Message,
                     CorrelationId = correlationId
                 }));
 

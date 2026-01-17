@@ -1,3 +1,8 @@
-namespace Application.Users;
+namespace Application.Users.Create;
 
-public sealed record CreateUserCommand(string Email, string Password);
+public sealed class CreateUserCommand
+{
+    public string Email { get; set; } = default!;
+
+    public string Password { get; set; } = default!;
+}

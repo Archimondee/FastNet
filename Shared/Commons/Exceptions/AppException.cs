@@ -1,4 +1,4 @@
-namespace Shared.Commons.Error;
+namespace Shared.Commons.Exceptions;
 
 public abstract class AppException : Exception
 {
