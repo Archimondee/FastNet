@@ -22,8 +22,9 @@ FastNet/
 │   └── Properties/             # Launch settings
 ├── Application/                # Application Layer (Use Cases, DTOs)
 │   ├── Interface/              # Application interfaces (IAppDbContext)
+│   ├── Behavior/               # Pipeline behaviors (Transaction, Logging)
 │   └── Users/                  # User use cases
-│       └── Create/             # Create user command, handler, validator
+│       └── CreateUser/         # Create user command, handler, validator
 ├── Domain/                     # Domain Layer (Entities, Value Objects)
 │   ├── Common/                 # Base entities with audit fields
 │   └── Entities/               # Domain entities (User)
@@ -55,6 +56,7 @@ FastNet/
 | **FastEndpoints** | ✅ | High-performance endpoint routing (v7.2.0) |
 | **Central Package Management** | ✅ | `Directory.Packages.props` for unified versioning |
 | **Code Analysis** | ✅ | StyleCop + SonarAnalyzer integration |
+| **Pipeline Behaviors** | ✅ | Transactional behavior wrapping handlers |
 | **Docker Support** | ✅ | Multi-stage Dockerfile for optimized builds |
 | **Docker Compose** | ✅ | Container orchestration ready |
 
@@ -107,6 +109,7 @@ FastNet/
 | **Rate Limiting** | ✅ | Fixed window limiter (100 req/min per IP) |
 | **Response Compression** | ✅ | Gzip + Brotli with fastest compression |
 | **Response Caching** | ✅ | Built-in response caching middleware |
+| **Performance Middleware** | ✅ | Request timing logs + Slow request (>500ms) warnings |
 
 ### 📝 API Documentation
 
@@ -322,7 +325,7 @@ Content-Type: application/json
 | Authentication (JWT/OAuth) | High | ❌ |
 | Password Hashing (BCrypt) | High | ❌ |
 | Repository Pattern | Medium | ❌ |
-| Unit of Work | Medium | ❌ |
+| Unit of Work | Medium | ✅ |
 | MediatR/CQRS | Medium | ❌ |
 | Background Jobs (Hangfire/Quartz) | Medium | ❌ |
 | Distributed Caching (Redis) | Medium | ❌ |
