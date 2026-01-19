@@ -12,8 +12,10 @@ public static class DependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.AddDbContext<AppDbContext>(options =>
+        services.AddScoped<QueryInterceptor>();
+        services.AddDbContext<AppDbContext>((sp, options) =>
         {
+            var interceptor = sp.GetRequiredService<QueryInterceptor>();
             options.UseNpgsql(
                 configuration.GetConnectionString("Default"),
                 npgsql =>
@@ -21,10 +23,10 @@ public static class DependencyInjection
                     npgsql.MigrationsAssembly(
                         typeof(AppDbContext).Assembly.FullName);
                 });
+            options.AddInterceptors(interceptor);
         });
 
-        services.AddScoped<IAppDbContext>(
-            sp => sp.GetRequiredService<AppDbContext>());
+        services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<AppDbContext>());
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         return services;
     }

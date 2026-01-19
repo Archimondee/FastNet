@@ -12,7 +12,9 @@ public sealed class AppDbContext
     public DbSet<User> Users => Set<User>();
 
     public AppDbContext(DbContextOptions<AppDbContext> options)
-        : base(options) { }
+        : base(options)
+    {
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
