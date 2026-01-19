@@ -273,49 +273,6 @@ docker run -p 8080:8080 fastnet-api
 | `GET` | `/health` | Health check endpoint | Anonymous |
 | `POST` | `/api/users` | Create a new user | Anonymous |
 
-### User Endpoints
-
-#### Create User
-
-```http
-POST /api/users
-Content-Type: application/json
-
-{
-  "email": "user@example.com",
-  "password": "securepassword123"
-}
-```
-
-**Response (201 Created):**
-```json
-{
-  "id": "550e8400-e29b-41d4-a716-446655440000"
-}
-```
-
-**Validation Errors (400 Bad Request):**
-```json
-{
-  "code": "VALIDATION_ERROR",
-  "message": "Validation failed",
-  "errors": [
-    { "field": "Email", "error": "'Email' is not a valid email address." },
-    { "field": "Password", "error": "'Password' must be at least 8 characters." }
-  ],
-  "correlationId": "abc123"
-}
-```
-
-**Conflict Error (409 Conflict):**
-```json
-{
-  "code": "CONFLICT",
-  "message": "Email already exists",
-  "correlationId": "abc123"
-}
-```
-
 ---
 
 ## 📋 TODO / Roadmap

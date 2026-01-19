@@ -27,6 +27,7 @@ builder.Services
     .AddResponseCaching();
 
 var app = builder.Build();
+app.UseMiddleware<CorrelationIdMiddleware>();
 app.UseMiddleware<GlobalExceptionMiddleware>();
 app.UseMiddleware<PerformanceMiddleware>();
 

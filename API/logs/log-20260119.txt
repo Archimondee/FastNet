@@ -38,3 +38,20 @@
 2026-01-19 11:54:37.163 +07:00 [INF]  HTTP POST /api/v1/users responded 200 in 751ms 
 2026-01-19 11:54:37.164 +07:00 [WRN] Slow HTTP POST /api/v1/users responded 200 in 751ms 
 2026-01-19 11:54:45.411 +07:00 [INF]  HTTP POST /api/v1/users responded 200 in 34ms 
+2026-01-19 13:57:52.590 +07:00 [INF] Registered 2 endpoints in 231 milliseconds.
+2026-01-19 13:57:52.722 +07:00 [INF] No validators found in the system!
+2026-01-19 13:57:52.759 +07:00 [INF] Listening on http://localhost:5284
+2026-01-19 13:58:01.207 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-19 13:58:02.116 +07:00 [INF] null HTTP POST /api/v1/users responded 200 in 909ms 
+2026-01-19 13:58:02.117 +07:00 [WRN] Slow HTTP POST /api/v1/users responded 200 in 909ms 
+2026-01-19 14:02:51.697 +07:00 [INF] Registered 2 endpoints in 208 milliseconds.
+2026-01-19 14:02:51.809 +07:00 [INF] No validators found in the system!
+2026-01-19 14:02:51.844 +07:00 [INF] Listening on http://localhost:5284
+2026-01-19 14:03:01.302 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-19 14:03:02.103 +07:00 [INF] HTTP POST /api/v1/users responded 200 in 800ms 
+2026-01-19 14:03:02.104 +07:00 [WRN] Slow HTTP POST /api/v1/users responded 200 in 800ms 
+2026-01-19 14:03:13.065 +07:00 [WRN] Transaction rolled back for User
+Shared.Commons.Exceptions.ConflictException: Email already exists
+   at Application.Users.CreateUser.CreateUserHandler.Handle(User user, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/CreateUser/CreateUserHandler.cs:line 25
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 29
+2026-01-19 14:03:13.105 +07:00 [WRN] Application error | CONFLICT | 409 | /api/v1/users | b37ce4f1-c0f2-4d29-a038-ffdc0b613beb

@@ -24,7 +24,7 @@ public class PerformanceMiddleware
     sw.Stop();
 
     _logger.LogInformation(
-      " HTTP {Method} {Path} responded {StatusCode} in {ElapsedMs}ms ",
+      "HTTP {Method} {Path} responded {StatusCode} in {ElapsedMs}ms ",
       context.Request.Method,
       context.Request.Path,
       context.Response.StatusCode,
@@ -34,11 +34,11 @@ public class PerformanceMiddleware
     if (sw.ElapsedMilliseconds > 500)
     {
       _logger.LogWarning(
-          "Slow HTTP {Method} {Path} responded {StatusCode} in {ElapsedMs}ms ",
-          context.Request.Method,
-          context.Request.Path,
-          context.Response.StatusCode,
-          sw.ElapsedMilliseconds
+        "Slow HTTP {Method} {Path} responded {StatusCode} in {ElapsedMs}ms ",
+        context.Request.Method,
+        context.Request.Path,
+        context.Response.StatusCode,
+        sw.ElapsedMilliseconds
       );
     }
   }
