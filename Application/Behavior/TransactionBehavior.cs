@@ -22,6 +22,11 @@ public sealed class TransactionBehavior<TRequest, TResponse>
         CancellationToken ct,
         Func<Task<TResponse>> next)
     {
+        if (request is IReadOnlyRequest)
+        {
+            return await next();
+        }
+
         await _uow.BeginAsync(ct);
 
         try

@@ -90,3 +90,17 @@ Shared.Commons.Exceptions.ConflictException: Email already exists
    at Application.Users.CreateUser.CreateUserHandler.Handle(User user, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/CreateUser/CreateUserHandler.cs:line 25
    at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 29
 2026-01-19 14:48:57.912 +07:00 [WRN] Application error | CONFLICT | 409 | /api/v1/users | 4b5fe6c4-722c-4054-b713-9c765dc9fe26
+2026-01-19 14:51:31.249 +07:00 [INF] Registered 2 endpoints in 202 milliseconds.
+2026-01-19 14:51:31.383 +07:00 [INF] No validators found in the system!
+2026-01-19 14:51:31.451 +07:00 [INF] Listening on http://localhost:5284
+2026-01-19 14:51:33.445 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-19 14:51:34.084 +07:00 [INF] SQL (24ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-01-19 14:51:34.105 +07:00 [WRN] Transaction rolled back for User
+Shared.Commons.Exceptions.ConflictException: Email already exists
+   at Application.Users.CreateUser.CreateUserHandler.Handle(User user, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/CreateUser/CreateUserHandler.cs:line 25
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 29
+2026-01-19 14:51:34.113 +07:00 [WRN] Application error | CONFLICT | 409 | /api/v1/users | 20b4cd0c-e0e7-4b52-b4fe-c79693c0addb
