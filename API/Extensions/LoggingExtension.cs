@@ -1,5 +1,7 @@
 using Serilog;
 
+namespace API.Extensions;
+
 public static class LoggingExtension
 {
     public static WebApplicationBuilder AddLoggingPlatform(

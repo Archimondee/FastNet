@@ -4,6 +4,7 @@ A high-performance .NET 9 Web API template built with **FastEndpoints**, designe
 
 ![.NET 9](https://img.shields.io/badge/.NET-9.0-512BD4?style=for-the-badge&logo=dotnet)
 ![FastEndpoints](https://img.shields.io/badge/FastEndpoints-7.2.0-00D4AA?style=for-the-badge)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Ready-336791?style=for-the-badge&logo=postgresql)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker)
 
 ---
@@ -14,12 +15,22 @@ A high-performance .NET 9 Web API template built with **FastEndpoints**, designe
 FastNet/
 ├── API/                        # Presentation Layer (Web API)
 │   ├── Endpoints/              # FastEndpoints route handlers
+│   │   ├── Health/             # Health check endpoint
+│   │   └── User/               # User management endpoints
 │   ├── Extensions/             # Service configuration extensions
 │   ├── Middlewares/            # Custom middleware components
 │   └── Properties/             # Launch settings
 ├── Application/                # Application Layer (Use Cases, DTOs)
+│   ├── Interface/              # Application interfaces (IAppDbContext)
+│   └── Users/                  # User use cases
+│       └── Create/             # Create user command, handler, validator
 ├── Domain/                     # Domain Layer (Entities, Value Objects)
+│   ├── Common/                 # Base entities with audit fields
+│   └── Entities/               # Domain entities (User)
 ├── Infrastructure/             # Infrastructure Layer (Data Access, External Services)
+│   ├── Configurations/         # EF Core entity configurations
+│   ├── Migrations/             # Database migrations
+│   └── Persistence/            # DbContext implementation
 ├── Shared/                     # Shared Kernel (Commons, Exceptions, Utilities)
 │   └── Commons/
 │       ├── Error/              # Error codes definitions
@@ -27,8 +38,8 @@ FastNet/
 │       └── Response/           # API response models
 ├── Directory.Build.props       # Central build properties
 ├── Directory.Packages.props    # Central package management
-├── StyleCop.ruleset           # Code style rules
-└── compose.yaml               # Docker Compose configuration
+├── StyleCop.ruleset            # Code style rules
+└── compose.yaml                # Docker Compose configuration
 ```
 
 ---
@@ -46,6 +57,29 @@ FastNet/
 | **Code Analysis** | ✅ | StyleCop + SonarAnalyzer integration |
 | **Docker Support** | ✅ | Multi-stage Dockerfile for optimized builds |
 | **Docker Compose** | ✅ | Container orchestration ready |
+
+### 🗄️ Database & Persistence
+
+| Feature | Status | Description |
+|---------|--------|-------------|
+| **Entity Framework Core 9** | ✅ | Modern ORM with full async support |
+| **PostgreSQL** | ✅ | Production-ready database with Npgsql provider |
+| **DbContext Abstraction** | ✅ | `IAppDbContext` interface for testability |
+| **Entity Configurations** | ✅ | Fluent API configurations for entities |
+| **Migrations** | ✅ | Code-first database migrations support |
+| **Soft Delete** | ✅ | Global query filter for soft-deleted entities |
+| **Audit Fields** | ✅ | Automatic `CreatedAt`, `UpdatedAt`, `DeletedAt` tracking |
+| **Audit Trail** | ✅ | `CreatedBy`, `UpdatedBy`, `DeletedBy` user tracking |
+
+### 👤 User Management
+
+| Feature | Status | Description |
+|---------|--------|-------------|
+| **User Entity** | ✅ | Domain entity with email and password |
+| **Create User Endpoint** | ✅ | `POST /api/users` - Register new users |
+| **Email Validation** | ✅ | FluentValidation for email format |
+| **Password Validation** | ✅ | Minimum 8 characters requirement |
+| **Duplicate Prevention** | ✅ | Unique email constraint with conflict handling |
 
 ### 🔒 Security Features
 
@@ -97,8 +131,17 @@ FastNet/
 | `NotFoundException` | 404 | `NOT_FOUND` |
 | `UnauthorizedException` | 401 | `UNAUTHORIZED` |
 | `ForbiddenException` | 403 | `FORBIDDEN` |
+| `ConflictException` | 409 | `CONFLICT` |
 | Validation Errors | 400 | `VALIDATION_ERROR` |
 | System Errors | 500 | `INTERNAL_SERVER_ERROR` |
+
+### 🏛️ Domain-Driven Design
+
+| Feature | Status | Description |
+|---------|--------|-------------|
+| **Base Entity** | ✅ | Abstract base with ID and audit tracking |
+| **Encapsulated Entities** | ✅ | Private setters, factory constructors |
+| **Value Objects Ready** | ✅ | Architecture supports value objects |
 
 ### 🩺 Health & Monitoring
 
@@ -113,7 +156,22 @@ FastNet/
 ### Prerequisites
 
 - [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
+- [PostgreSQL](https://www.postgresql.org/) (or use Docker)
 - [Docker](https://www.docker.com/) (optional)
+
+### Database Setup
+
+```bash
+# Start PostgreSQL with Docker (if not installed locally)
+docker run -d --name postgres \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=yourpassword \
+  -e POSTGRES_DB=fastapi \
+  -p 5432:5432 \
+  postgres:16
+
+# Update connection string in API/appsettings.json
+```
 
 ### Running Locally
 
@@ -121,8 +179,11 @@ FastNet/
 # Restore dependencies
 dotnet restore
 
-# Run the API
+# Apply database migrations
 cd API
+dotnet ef database update --project ../Infrastructure
+
+# Run the API
 dotnet run
 ```
 
@@ -150,6 +211,9 @@ docker run -p 8080:8080 fastnet-api
 
 ```json
 {
+  "ConnectionStrings": {
+    "Default": "Host=localhost;Port=5432;Database=fastapi;Username=postgres;Password=yourpassword"
+  },
   "Cors": {
     "Origins": ["https://localhost:3000"]
   },
@@ -176,10 +240,14 @@ docker run -p 8080:8080 fastnet-api
 |---------|---------|---------|
 | FastEndpoints | 7.2.0 | High-performance routing |
 | FastEndpoints.Swagger | 7.2.0 | OpenAPI documentation |
+| Microsoft.EntityFrameworkCore | 9.0.12 | ORM for database access |
+| Npgsql.EntityFrameworkCore.PostgreSQL | 9.0.4 | PostgreSQL provider |
+| FluentValidation | 12.1.1 | Request validation |
 | Serilog | 4.3.0 | Structured logging |
 | Serilog.AspNetCore | 9.0.0 | ASP.NET Core integration |
 | Serilog.Sinks.Console | 6.1.1 | Console output |
 | Serilog.Sinks.File | 7.0.0 | File logging |
+| Serilog.Settings.Configuration | 9.0.0 | Configuration binding |
 | StyleCop.Analyzers | 1.2.0-beta.435 | Code style enforcement |
 | SonarAnalyzer.CSharp | 9.23.0 | Static code analysis |
 
@@ -195,29 +263,76 @@ docker run -p 8080:8080 fastnet-api
 
 ---
 
-## 📋 TODO / Roadmap
-
-| Feature | Priority | Status |
-|---------|----------|--------|
-| Authentication (JWT/OAuth) | High | ❌ |
-| Database Integration (EF Core) | High | ❌ |
-| Repository Pattern | High | ❌ |
-| Unit of Work | Medium | ❌ |
-| MediatR/CQRS | Medium | ❌ |
-| Background Jobs (Hangfire/Quartz) | Medium | ❌ |
-| Distributed Caching (Redis) | Medium | ❌ |
-| API Versioning | Low | ❌ |
-| Health Checks (Advanced) | Low | ❌ |
-| Integration Tests | Medium | ❌ |
-| Unit Tests | Medium | ❌ |
-
----
-
 ## 🏷️ API Endpoints
 
 | Method | Endpoint | Description | Auth |
 |--------|----------|-------------|------|
 | `GET` | `/health` | Health check endpoint | Anonymous |
+| `POST` | `/api/users` | Create a new user | Anonymous |
+
+### User Endpoints
+
+#### Create User
+
+```http
+POST /api/users
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "securepassword123"
+}
+```
+
+**Response (201 Created):**
+```json
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+**Validation Errors (400 Bad Request):**
+```json
+{
+  "code": "VALIDATION_ERROR",
+  "message": "Validation failed",
+  "errors": [
+    { "field": "Email", "error": "'Email' is not a valid email address." },
+    { "field": "Password", "error": "'Password' must be at least 8 characters." }
+  ],
+  "correlationId": "abc123"
+}
+```
+
+**Conflict Error (409 Conflict):**
+```json
+{
+  "code": "CONFLICT",
+  "message": "Email already exists",
+  "correlationId": "abc123"
+}
+```
+
+---
+
+## 📋 TODO / Roadmap
+
+| Feature | Priority | Status |
+|---------|----------|--------|
+| Authentication (JWT/OAuth) | High | ❌ |
+| Password Hashing (BCrypt) | High | ❌ |
+| Repository Pattern | Medium | ❌ |
+| Unit of Work | Medium | ❌ |
+| MediatR/CQRS | Medium | ❌ |
+| Background Jobs (Hangfire/Quartz) | Medium | ❌ |
+| Distributed Caching (Redis) | Medium | ❌ |
+| API Versioning (Advanced) | Low | ❌ |
+| Health Checks (Database) | Low | ❌ |
+| Integration Tests | Medium | ❌ |
+| Unit Tests | Medium | ❌ |
+| Get User Endpoint | Medium | ❌ |
+| Update User Endpoint | Medium | ❌ |
+| Delete User Endpoint | Medium | ❌ |
 
 ---
 

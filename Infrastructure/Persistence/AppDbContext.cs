@@ -61,6 +61,7 @@ public sealed class AppDbContext
         {
             if (entry.State == EntityState.Added)
             {
+                entry.Entity.MarkCreated(createdBy: "system");
             }
 
             if (entry.State == EntityState.Modified)

@@ -1,0 +1,132 @@
+2026-01-18 15:34:55.859 +07:00 [INF] Registered 2 endpoints in 362 milliseconds.
+2026-01-18 15:34:56.005 +07:00 [INF] No validators found in the system!
+2026-01-18 15:35:10.864 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-18 15:42:12.881 +07:00 [INF] Registered 2 endpoints in 325 milliseconds.
+2026-01-18 15:42:13.009 +07:00 [INF] No validators found in the system!
+2026-01-18 15:42:18.741 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-18 16:27:54.521 +07:00 [INF] Registered 2 endpoints in 430 milliseconds.
+2026-01-18 16:27:54.676 +07:00 [INF] No validators found in the system!
+2026-01-18 16:28:15.354 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-18 16:28:16.196 +07:00 [ERR] Unhandled system exception | /api/v1/users | df6547c6-242d-47b8-b72b-f0dc46774c37
+System.InvalidCastException: Unable to cast object of type 'Application.Users.CreateUser.CreateUserMapper' to type 'FastEndpoints.Mapper`3[Application.Users.CreateUser.CreateUserRequest,Application.Users.CreateUser.CreateUserResponse,Shared.Commons.Response.ApiResponse`1[Application.Users.CreateUser.CreateUserResponse]]'.
+   at FastEndpoints.Endpoint`3.SendMappedAsync[TEntity](TEntity entity, Int32 statusCode, CancellationToken ct)
+   at API.Endpoints.User.CreateUserEndpoint.HandleAsync(CreateUserRequest req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/CreateUserEndpoint.cs:line 38
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-01-18 16:31:05.033 +07:00 [INF] Registered 2 endpoints in 230 milliseconds.
+2026-01-18 16:31:05.141 +07:00 [INF] No validators found in the system!
+2026-01-18 16:31:08.230 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-18 16:31:32.008 +07:00 [INF] Registered 2 endpoints in 242 milliseconds.
+2026-01-18 16:31:32.087 +07:00 [INF] No validators found in the system!
+2026-01-18 16:31:32.133 +07:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5284: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (48): Address already in use
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-01-18 16:31:44.531 +07:00 [INF] Registered 2 endpoints in 169 milliseconds.
+2026-01-18 16:31:44.617 +07:00 [INF] No validators found in the system!
+2026-01-18 16:31:52.521 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-18 16:31:58.363 +07:00 [WRN] Application error | CONFLICT | 409 | /api/v1/users | 4f957842-fe9a-4705-b6c2-e9b07bf7b6ab
+2026-01-18 16:32:10.734 +07:00 [ERR] Unhandled system exception | /api/v1/users | 14b6ece6-bed6-4929-8a7f-17fa6da87910
+System.InvalidCastException: Unable to cast object of type 'Application.Users.CreateUser.CreateUserMapper' to type 'FastEndpoints.Mapper`3[Application.Users.CreateUser.CreateUserRequest,Application.Users.CreateUser.CreateUserResponse,Shared.Commons.Response.ApiResponse`1[Application.Users.CreateUser.CreateUserResponse]]'.
+   at FastEndpoints.Endpoint`3.SendMappedAsync[TEntity](TEntity entity, Int32 statusCode, CancellationToken ct)
+   at API.Endpoints.User.CreateUserEndpoint.HandleAsync(CreateUserRequest req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/CreateUserEndpoint.cs:line 38
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-01-18 16:34:05.623 +07:00 [INF] Registered 2 endpoints in 247 milliseconds.
+2026-01-18 16:34:05.745 +07:00 [INF] No validators found in the system!
+2026-01-18 16:34:07.147 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-18 16:34:07.701 +07:00 [WRN] Application error | CONFLICT | 409 | /api/v1/users | a2b57b22-7b09-420d-9416-c70ba3de622b
+2026-01-18 16:34:13.438 +07:00 [ERR] Unhandled system exception | /api/v1/users | 0368ba9d-2cf3-4f7e-ac69-2188dd17ac10
+System.InvalidCastException: Unable to cast object of type 'Application.Users.CreateUser.CreateUserMapper' to type 'FastEndpoints.Mapper`3[Application.Users.CreateUser.CreateUserRequest,Application.Users.CreateUser.CreateUserResponse,Shared.Commons.Response.ApiResponse`1[Application.Users.CreateUser.CreateUserResponse]]'.
+   at FastEndpoints.Endpoint`3.SendMappedAsync[TEntity](TEntity entity, Int32 statusCode, CancellationToken ct)
+   at API.Endpoints.User.CreateUserEndpoint.HandleAsync(CreateUserRequest req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/CreateUserEndpoint.cs:line 41
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-01-18 16:42:58.399 +07:00 [INF] Registered 2 endpoints in 225 milliseconds.
+2026-01-18 16:42:58.536 +07:00 [INF] No validators found in the system!
+2026-01-18 16:43:03.262 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-18 16:43:03.949 +07:00 [ERR] Unhandled system exception | /api/v1/users | 0bee9c9b-671c-4f5a-abb4-a147d24235fb
+System.NotImplementedException: Please override the FromEntityAsync method!
+   at FastEndpoints.Mapper`3.FromEntityAsync(TEntity e, CancellationToken ct)
+   at FastEndpoints.Endpoint`3.SendMappedAsync[TEntity](TEntity entity, Int32 statusCode, CancellationToken ct)
+   at API.Endpoints.User.CreateUserEndpoint.HandleAsync(CreateUserRequest req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/CreateUserEndpoint.cs:line 41
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-01-18 16:48:56.456 +07:00 [INF] Registered 2 endpoints in 1.019 milliseconds.
+2026-01-18 16:48:56.911 +07:00 [INF] No validators found in the system!
+2026-01-18 16:49:02.475 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-18 16:49:03.118 +07:00 [WRN] Application error | CONFLICT | 409 | /api/v1/users | ff778e94-984d-4e6d-96d4-3c1b38c825c4
+2026-01-18 21:08:47.122 +07:00 [INF] Registered 2 endpoints in 233 milliseconds.
+2026-01-18 21:08:47.208 +07:00 [INF] No validators found in the system!
+2026-01-18 21:08:56.937 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-18 21:15:42.863 +07:00 [INF] Registered 2 endpoints in 209 milliseconds.
+2026-01-18 21:15:42.964 +07:00 [INF] No validators found in the system!
+2026-01-18 21:15:50.000 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-18 21:15:50.079 +07:00 [INF] Starting request User
+2026-01-18 21:15:50.834 +07:00 [WRN] Slow request User took 752ms
+2026-01-18 21:15:50.834 +07:00 [INF] Completed request User in 755ms
+2026-01-18 21:21:28.748 +07:00 [INF] Registered 2 endpoints in 175 milliseconds.
+2026-01-18 21:21:28.821 +07:00 [INF] No validators found in the system!
+2026-01-18 21:21:35.126 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-18 21:21:35.931 +07:00 [WRN] Slow request User took 752ms
+2026-01-18 21:21:35.932 +07:00 [INF] Completed request User in 755ms

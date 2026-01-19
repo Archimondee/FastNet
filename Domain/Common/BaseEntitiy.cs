@@ -22,7 +22,7 @@ public abstract class BaseEntity
         MarkCreated();
     }
 
-    protected void MarkCreated(string? createdBy = null)
+    public void MarkCreated(string? createdBy = null)
     {
         CreatedAt = DateTime.UtcNow;
         CreatedBy = createdBy;

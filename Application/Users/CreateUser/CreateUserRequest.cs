@@ -1,6 +1,6 @@
-namespace Application.Users.Create;
+namespace Application.Users.CreateUser;
 
-public sealed class CreateUserCommand
+public sealed class CreateUserRequest
 {
     public string Email { get; set; } = default!;
 

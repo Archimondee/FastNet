@@ -1,0 +1,40 @@
+2026-01-19 09:08:16.247 +07:00 [INF] Registered 2 endpoints in 204 milliseconds.
+2026-01-19 09:08:16.327 +07:00 [INF] No validators found in the system!
+2026-01-19 09:20:10.686 +07:00 [INF] Registered 2 endpoints in 177 milliseconds.
+2026-01-19 09:20:10.757 +07:00 [INF] No validators found in the system!
+2026-01-19 09:20:10.784 +07:00 [INF] Listening on http://localhost:5000
+2026-01-19 09:20:29.325 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-19 09:20:29.990 +07:00 [WRN] Slow request User took 619ms
+2026-01-19 09:20:29.992 +07:00 [INF] Completed request User in 621ms
+2026-01-19 09:20:43.239 +07:00 [WRN] Application error | CONFLICT | 409 | /api/v1/users | 85b6b37e-741c-4c1f-b6c6-858ffd95d790
+2026-01-19 09:20:45.866 +07:00 [WRN] Application error | CONFLICT | 409 | /api/v1/users | d7d34be2-ca12-4e13-84ba-b1a134c4b0ed
+2026-01-19 09:20:50.420 +07:00 [INF] Completed request User in 7ms
+2026-01-19 09:20:54.537 +07:00 [INF] Completed request User in 3ms
+2026-01-19 09:20:57.418 +07:00 [INF] Completed request User in 3ms
+2026-01-19 09:21:00.285 +07:00 [INF] Completed request User in 3ms
+2026-01-19 11:20:35.550 +07:00 [INF] Registered 2 endpoints in 495 milliseconds.
+2026-01-19 11:20:35.742 +07:00 [INF] No validators found in the system!
+2026-01-19 11:20:35.819 +07:00 [INF] Listening on http://localhost:5284
+2026-01-19 11:20:48.159 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-19 11:20:48.858 +07:00 [WRN] Slow request User took 626ms
+2026-01-19 11:20:48.884 +07:00 [INF] HTTP POST /api/v1/users responded 200 in 726ms
+2026-01-19 11:20:58.762 +07:00 [INF] HTTP POST /api/v1/users responded 200 in 48ms
+2026-01-19 11:32:28.424 +07:00 [INF] Registered 2 endpoints in 246 milliseconds.
+2026-01-19 11:32:28.548 +07:00 [INF] No validators found in the system!
+2026-01-19 11:32:28.588 +07:00 [INF] Listening on http://localhost:5284
+2026-01-19 11:32:35.722 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-19 11:32:36.361 +07:00 [WRN] Slow request User took 572ms
+2026-01-19 11:32:36.385 +07:00 [INF]  HTTP POST /api/v1/users responded 200 in 663ms 
+ Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpRequestStream
+2026-01-19 11:32:36.386 +07:00 [WRN] Slow HTTP POST /api/v1/users responded 200 in 663ms 
+ Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpRequestStream
+2026-01-19 11:32:49.860 +07:00 [WRN] Application error | CONFLICT | 409 | /api/v1/users | ea32bff3-5618-4339-a25b-d0d6efe10f44
+2026-01-19 11:32:57.437 +07:00 [INF]  HTTP POST /api/v1/users responded 200 in 19ms 
+ Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpRequestStream
+2026-01-19 11:54:26.662 +07:00 [INF] Registered 2 endpoints in 213 milliseconds.
+2026-01-19 11:54:26.763 +07:00 [INF] No validators found in the system!
+2026-01-19 11:54:26.802 +07:00 [INF] Listening on http://localhost:5284
+2026-01-19 11:54:36.409 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-01-19 11:54:37.163 +07:00 [INF]  HTTP POST /api/v1/users responded 200 in 751ms 
+2026-01-19 11:54:37.164 +07:00 [WRN] Slow HTTP POST /api/v1/users responded 200 in 751ms 
+2026-01-19 11:54:45.411 +07:00 [INF]  HTTP POST /api/v1/users responded 200 in 34ms 

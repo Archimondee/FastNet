@@ -1,4 +1,3 @@
-using System;
 using FastEndpoints;
 
 namespace API.Endpoints.Health;
@@ -18,6 +17,7 @@ public sealed class HealthEndpoint : EndpointWithoutRequest
     {
       status = "OK",
       time = DateTime.UtcNow
-    }, ct);
+    },
+    ct);
   }
 }

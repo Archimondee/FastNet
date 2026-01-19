@@ -25,7 +25,7 @@ public static class DependencyInjection
 
         services.AddScoped<IAppDbContext>(
             sp => sp.GetRequiredService<AppDbContext>());
-
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         return services;
     }
 }

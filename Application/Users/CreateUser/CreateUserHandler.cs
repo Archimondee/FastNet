@@ -3,7 +3,7 @@ using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Shared.Commons.Exceptions;
 
-namespace Application.Users.Create;
+namespace Application.Users.CreateUser;
 
 public sealed class CreateUserHandler
 {
@@ -14,26 +14,19 @@ public sealed class CreateUserHandler
         _db = db;
     }
 
-    public async Task<Guid> Handle(
-        CreateUserCommand command,
+    public async Task<User> Handle(
+        User user,
         CancellationToken ct)
     {
         var exists = await _db.Users
-            .AnyAsync(x => x.Email == command.Email, ct);
+            .AnyAsync(x => x.Email == user.Email, ct);
 
         if (exists)
-        {
-            throw new ConflictException(
-                "Email already exists");
-        }
-
-        var user = new User(
-            command.Email,
-            command.Password);
+            throw new ConflictException("Email already exists");
 
         _db.Users.Add(user);
         await _db.SaveChangesAsync(ct);
 
-        return user.Id;
+        return user;
     }
 }
