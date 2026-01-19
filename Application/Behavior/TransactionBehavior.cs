@@ -22,7 +22,7 @@ public sealed class TransactionBehavior<TRequest, TResponse>
         CancellationToken ct,
         Func<Task<TResponse>> next)
     {
-        if (request is IReadOnlyRequest)
+        if (request is not IReadOnlyRequest)
         {
             return await next();
         }
