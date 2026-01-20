@@ -8,16 +8,26 @@ public sealed class User : BaseEntity
 
     public string Password { get; private set; } = default!;
 
+    public string FirstName { get; private set; } = default!;
+
+    public string LastName { get; private set; } = default!;
+
+    public bool IsActive { get; private set; } = true;
 
     private User()
     {
     }
 
-    public User(string email, string passwordHash)
+    public User(string email, string passwordHash, string firstName, string lastName, bool isActive)
     {
         Email = email;
         Password = passwordHash;
+        FirstName = firstName;
+        LastName = lastName;
+        IsActive = isActive;
         CreatedBy = email;
         MarkCreated();
     }
+
+    public ICollection<UserRole> UserRoles { get; set; } = [];
 }

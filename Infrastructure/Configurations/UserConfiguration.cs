@@ -2,7 +2,6 @@ using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-
 namespace Infrastructure.Configurations;
 
 public sealed class UserConfiguration
@@ -19,5 +18,8 @@ public sealed class UserConfiguration
             .IsUnique();
         builder.Property(x => x.Password)
             .IsRequired();
+        builder.Property(x => x.FirstName).IsRequired().HasMaxLength(50);
+        builder.Property(x => x.LastName).IsRequired().HasMaxLength(50);
+        builder.Property(x => x.IsActive).IsRequired().HasDefaultValue(true);
     }
 }
