@@ -12,7 +12,10 @@ public sealed class CreateUserEndpoint
     private readonly CreateUserHandler _handler;
     private readonly BehaviorExecutor<DomainUser, DomainUser> _executor;
 
-    public CreateUserEndpoint(CreateUserHandler handler, BehaviorExecutor<DomainUser, DomainUser> executor)
+    public CreateUserEndpoint(
+        CreateUserHandler handler,
+        BehaviorExecutor<DomainUser,
+            DomainUser> executor)
     {
         _handler = handler;
         _executor = executor;
@@ -31,9 +34,9 @@ public sealed class CreateUserEndpoint
         var user = Map.ToEntity(req);
 
         var created = await _executor.ExecuteAsync(
-        user,
-        ct,
-        () => _handler.Handle(user, ct));
+            user,
+            ct,
+            () => _handler.Handle(user, ct));
 
         const int time = 0;
 

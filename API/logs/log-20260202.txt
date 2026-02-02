@@ -318,3 +318,537 @@ INSERT INTO user_roles ("RoleId", "UserId", "AssignedAt", "CreatedAt", "CreatedB
 VALUES (@p65, @p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74);
 
 2026-02-02 14:13:02.206 +07:00 [INF] Listening on http://localhost:5284
+2026-02-02 14:22:20.275 +07:00 [ERR] An error occurred using the connection to database 'fastapi' on server 'tcp://localhost:5432'.
+2026-02-02 14:22:49.805 +07:00 [INF] Registered 2 endpoints in 229 milliseconds.
+2026-02-02 14:22:49.897 +07:00 [INF] No validators found in the system!
+2026-02-02 14:22:50.303 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 14:22:50.449 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 14:22:50.456 +07:00 [INF] SQL (0ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 14:22:50.457 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 14:22:50.570 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 14:22:51.363 +07:00 [INF] SQL (13ms)
+INSERT INTO permissions ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+INSERT INTO permissions ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17);
+INSERT INTO permissions ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26);
+INSERT INTO permissions ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35);
+INSERT INTO roles ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43, @p44);
+INSERT INTO roles ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p45, @p46, @p47, @p48, @p49, @p50, @p51, @p52, @p53);
+
+2026-02-02 14:22:51.387 +07:00 [INF] SQL (1ms)
+INSERT INTO users ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Email", "FirstName", "LastName", "Password", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+RETURNING "IsActive";
+INSERT INTO users ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Email", "FirstName", "LastName", "Password", "UpdatedAt", "UpdatedBy")
+VALUES (@p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21)
+RETURNING "IsActive";
+
+2026-02-02 14:22:51.427 +07:00 [INF] SQL (5ms)
+INSERT INTO role_permissions ("PermissionId", "RoleId", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+INSERT INTO role_permissions ("PermissionId", "RoleId", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17);
+INSERT INTO role_permissions ("PermissionId", "RoleId", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26);
+INSERT INTO role_permissions ("PermissionId", "RoleId", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35);
+INSERT INTO role_permissions ("PermissionId", "RoleId", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43, @p44);
+INSERT INTO user_roles ("RoleId", "UserId", "AssignedAt", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p45, @p46, @p47, @p48, @p49, @p50, @p51, @p52, @p53, @p54);
+INSERT INTO user_roles ("RoleId", "UserId", "AssignedAt", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64);
+
+2026-02-02 14:22:51.455 +07:00 [INF] Listening on http://localhost:5284
+2026-02-02 15:04:06.326 +07:00 [INF] Registered 2 endpoints in 324 milliseconds.
+2026-02-02 15:04:06.461 +07:00 [INF] No validators found in the system!
+2026-02-02 15:04:07.017 +07:00 [INF] SQL (15ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:04:07.147 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 15:04:07.156 +07:00 [INF] SQL (2ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 15:04:07.157 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:04:07.276 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 15:04:07.306 +07:00 [INF] Listening on http://localhost:5284
+2026-02-02 15:05:31.978 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-02 15:05:32.306 +07:00 [INF] SQL (25ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-02 15:05:32.395 +07:00 [INF] SQL (7ms)
+INSERT INTO users ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Email", "FirstName", "LastName", "Password", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+RETURNING "IsActive";
+
+2026-02-02 15:05:32.429 +07:00 [INF] SQL (3ms)
+SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+FROM roles AS r
+WHERE r."DeletedAt" IS NULL AND r."Name" = 'User'
+LIMIT 1
+2026-02-02 15:05:32.489 +07:00 [INF] HTTP POST /api/v1/users responded 200 in 512ms 
+2026-02-02 15:05:32.489 +07:00 [WRN] Slow HTTP POST /api/v1/users responded 200 in 512ms 
+2026-02-02 15:09:36.811 +07:00 [INF] Registered 2 endpoints in 278 milliseconds.
+2026-02-02 15:09:36.945 +07:00 [INF] No validators found in the system!
+2026-02-02 15:09:37.393 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:09:37.515 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 15:09:37.529 +07:00 [INF] SQL (7ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 15:09:37.530 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:09:37.646 +07:00 [INF] SQL (3ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 15:09:37.676 +07:00 [INF] Listening on http://localhost:5284
+2026-02-02 15:09:51.895 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-02 15:09:52.173 +07:00 [INF] SQL (30ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-02 15:09:52.255 +07:00 [INF] SQL (8ms)
+INSERT INTO users ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Email", "FirstName", "LastName", "Password", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+RETURNING "IsActive";
+
+2026-02-02 15:09:52.286 +07:00 [INF] SQL (2ms)
+SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+FROM roles AS r
+WHERE r."DeletedAt" IS NULL AND r."Name" = 'User'
+LIMIT 1
+2026-02-02 15:09:52.323 +07:00 [INF] SQL (3ms)
+INSERT INTO user_roles ("RoleId", "UserId", "AssignedAt", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+
+2026-02-02 15:09:52.349 +07:00 [INF] HTTP POST /api/v1/users responded 200 in 454ms 
+2026-02-02 15:15:30.577 +07:00 [INF] Registered 2 endpoints in 240 milliseconds.
+2026-02-02 15:15:30.696 +07:00 [INF] No validators found in the system!
+2026-02-02 15:15:31.126 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:15:31.256 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 15:15:31.264 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 15:15:31.265 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:15:31.382 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 15:15:31.410 +07:00 [INF] Listening on http://localhost:5284
+2026-02-02 15:15:33.038 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-02 15:15:33.122 +07:00 [INF] SQL (4ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-02 15:15:33.126 +07:00 [WRN] Application error | CONFLICT | 409 | /api/v1/users | 7a56b274-4ba0-4cbd-90ce-fec92fd8f6f0
+2026-02-02 15:15:41.251 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-02 15:15:41.383 +07:00 [INF] SQL (7ms)
+INSERT INTO users ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Email", "FirstName", "LastName", "Password", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+RETURNING "IsActive";
+
+2026-02-02 15:15:41.416 +07:00 [INF] SQL (3ms)
+SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+FROM roles AS r
+WHERE r."DeletedAt" IS NULL AND r."Name" = 'User'
+LIMIT 1
+2026-02-02 15:15:41.453 +07:00 [INF] SQL (2ms)
+INSERT INTO user_roles ("RoleId", "UserId", "AssignedAt", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+
+2026-02-02 15:15:41.474 +07:00 [INF] HTTP POST /api/v1/users responded 200 in 274ms 
+2026-02-02 15:21:21.438 +07:00 [INF] Registered 2 endpoints in 511 milliseconds.
+2026-02-02 15:21:21.570 +07:00 [INF] No validators found in the system!
+2026-02-02 15:21:22.365 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:21:22.504 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 15:21:22.516 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 15:21:22.518 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:21:22.670 +07:00 [INF] SQL (4ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 15:21:22.705 +07:00 [INF] Listening on http://localhost:5284
+2026-02-02 15:21:44.318 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-02 15:21:44.409 +07:00 [INF] SQL (11ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-02 15:21:44.511 +07:00 [INF] SQL (5ms)
+INSERT INTO users ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Email", "FirstName", "LastName", "Password", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+RETURNING "IsActive";
+
+2026-02-02 15:21:44.543 +07:00 [INF] SQL (2ms)
+SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+FROM roles AS r
+WHERE r."DeletedAt" IS NULL AND r."Name" = 'User'
+LIMIT 1
+2026-02-02 15:21:44.582 +07:00 [INF] SQL (5ms)
+INSERT INTO user_roles ("RoleId", "UserId", "AssignedAt", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+
+2026-02-02 15:21:44.609 +07:00 [INF] HTTP POST /api/v1/users responded 200 in 292ms 
+2026-02-02 15:21:47.920 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-02 15:21:47.927 +07:00 [WRN] Application error | CONFLICT | 409 | /api/v1/users | e29ed7bb-8ae6-41c8-8179-5fa8cdfe407c
+EP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-02-02 15:21:55.709 +07:00 [INF] Registered 2 endpoints in 261 milliseconds.
+2026-02-02 15:21:55.802 +07:00 [INF] No validators found in the system!
+2026-02-02 15:21:56.243 +07:00 [INF] SQL (13ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:21:56.366 +07:00 [INF] SQL (3ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 15:21:56.374 +07:00 [INF] SQL (0ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 15:21:56.377 +07:00 [INF] SQL (1ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:21:56.492 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 15:21:56.521 +07:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5284: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (48): Address already in use
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-02-02 15:22:32.914 +07:00 [INF] Registered 2 endpoints in 256 milliseconds.
+2026-02-02 15:22:33.500 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:22:33.633 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 15:22:33.640 +07:00 [INF] SQL (0ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 15:22:33.641 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:22:33.763 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 15:22:33.797 +07:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5284: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (48): Address already in use
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-02-02 15:22:55.148 +07:00 [INF] Registered 2 endpoints in 404 milliseconds.
+2026-02-02 15:22:55.819 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:22:55.970 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 15:22:55.981 +07:00 [INF] SQL (4ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 15:22:55.983 +07:00 [INF] SQL (2ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:22:56.103 +07:00 [INF] SQL (3ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 15:22:56.130 +07:00 [INF] Listening on http://localhost:5284
+2026-02-02 15:23:14.270 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-02 15:23:14.391 +07:00 [INF] HTTP POST /api/v1/users responded 400 in 122ms 
+2026-02-02 15:23:24.533 +07:00 [INF] SQL (15ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-02 15:23:24.636 +07:00 [INF] SQL (5ms)
+INSERT INTO users ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Email", "FirstName", "LastName", "Password", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+RETURNING "IsActive";
+
+2026-02-02 15:23:24.669 +07:00 [INF] SQL (2ms)
+SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+FROM roles AS r
+WHERE r."DeletedAt" IS NULL AND r."Name" = 'User'
+LIMIT 1
+2026-02-02 15:23:24.705 +07:00 [INF] SQL (1ms)
+INSERT INTO user_roles ("RoleId", "UserId", "AssignedAt", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+
+2026-02-02 15:23:24.725 +07:00 [INF] HTTP POST /api/v1/users responded 200 in 410ms 
+2026-02-02 15:30:21.946 +07:00 [INF] Registered 2 endpoints in 244 milliseconds.
+2026-02-02 15:30:22.534 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:30:22.684 +07:00 [INF] SQL (7ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 15:30:22.692 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 15:30:22.693 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:30:22.812 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 15:30:22.842 +07:00 [INF] Listening on http://localhost:5284
+2026-02-02 15:30:36.643 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-02 15:30:37.360 +07:00 [INF] SQL (32ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-02 15:30:37.435 +07:00 [INF] SQL (3ms)
+SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+FROM roles AS r
+WHERE r."DeletedAt" IS NULL AND r."Name" = 'User'
+LIMIT 1
+2026-02-02 15:30:37.520 +07:00 [INF] SQL (12ms)
+INSERT INTO users ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Email", "FirstName", "LastName", "Password", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+RETURNING "IsActive";
+INSERT INTO user_roles ("RoleId", "UserId", "AssignedAt", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+
+2026-02-02 15:30:37.557 +07:00 [INF] HTTP POST /api/v1/users responded 200 in 918ms 
+2026-02-02 15:30:37.558 +07:00 [WRN] Slow HTTP POST /api/v1/users responded 200 in 918ms 
+2026-02-02 15:53:17.055 +07:00 [INF] Registered 2 endpoints in 264 milliseconds.
+2026-02-02 15:53:17.651 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:53:17.771 +07:00 [INF] SQL (3ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 15:53:17.779 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 15:53:17.781 +07:00 [INF] SQL (1ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 15:53:17.898 +07:00 [INF] SQL (3ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 15:53:17.925 +07:00 [INF] Listening on http://localhost:5284
+2026-02-02 15:53:25.346 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-02 15:53:25.717 +07:00 [INF] SQL (25ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-02 15:53:26.306 +07:00 [INF] SQL (5ms)
+SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+FROM roles AS r
+WHERE r."DeletedAt" IS NULL AND r."Name" = 'User'
+LIMIT 1
+2026-02-02 15:53:26.383 +07:00 [INF] SQL (7ms)
+INSERT INTO users ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Email", "FirstName", "LastName", "Password", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+RETURNING "IsActive";
+INSERT INTO user_roles ("RoleId", "UserId", "AssignedAt", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+
+2026-02-02 15:53:26.444 +07:00 [INF] SQL (5ms)
+SELECT u1."Id", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Email", u1."FirstName", u1."IsActive", u1."LastName", u1."Password", u1."UpdatedAt", u1."UpdatedBy", s."UserId", s."RoleId", s."AssignedAt", s."CreatedAt", s."CreatedBy", s."DeletedAt", s."DeletedBy", s."Id", s."UpdatedAt", s."UpdatedBy", s."Id0", s."CreatedAt0", s."CreatedBy0", s."DeletedAt0", s."DeletedBy0", s."Description", s."Name", s."UpdatedAt0", s."UpdatedBy0"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Id" = @__user_Id_0
+    LIMIT 1
+) AS u1
+LEFT JOIN (
+    SELECT u0."UserId", u0."RoleId", u0."AssignedAt", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."DeletedBy", u0."Id", u0."UpdatedAt", u0."UpdatedBy", r0."Id" AS "Id0", r0."CreatedAt" AS "CreatedAt0", r0."CreatedBy" AS "CreatedBy0", r0."DeletedAt" AS "DeletedAt0", r0."DeletedBy" AS "DeletedBy0", r0."Description", r0."Name", r0."UpdatedAt" AS "UpdatedAt0", r0."UpdatedBy" AS "UpdatedBy0"
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    WHERE u0."DeletedAt" IS NULL
+) AS s ON u1."Id" = s."UserId"
+ORDER BY u1."Id", s."UserId", s."RoleId"
+2026-02-02 15:53:26.485 +07:00 [INF] HTTP POST /api/v1/users responded 200 in 1140ms 
+2026-02-02 15:53:26.486 +07:00 [WRN] Slow HTTP POST /api/v1/users responded 200 in 1140ms 

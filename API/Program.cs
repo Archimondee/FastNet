@@ -23,8 +23,15 @@ builder.Services.AddResponseCachingExtension();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(config);
 
-builder.Services
-    .AddFastEndpoints()
+builder.Services.AddFastEndpoints(o =>
+    {
+        o.IncludeAbstractValidators = true;
+        o.Assemblies = new[]
+        {
+            typeof(Program).Assembly,
+            typeof(Application.DependencyInjection).Assembly
+        };
+    })
     .AddResponseCaching();
 
 var app = builder.Build();
