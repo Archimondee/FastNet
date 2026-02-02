@@ -13,11 +13,11 @@ public class Role : BaseEntity
     {
     }
 
-    public Role(string name, string description, User user)
+    public Role(string name, string description, User? user = null)
     {
         Name = name;
         Description = description;
-        CreatedBy = user.Email;
+        CreatedBy = user?.Email ?? "system@email.com";
         MarkCreated();
     }
 

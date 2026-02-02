@@ -18,14 +18,12 @@ public class UserRole : BaseEntity
     {
     }
 
-    public UserRole(Guid userId, Guid roleId, User user, Role role, DateTime assignedAt)
+    public UserRole(Guid userId, Guid roleId, DateTime assignedAt, User? user = null)
     {
         UserId = userId;
         RoleId = roleId;
-        User = user;
-        Role = role;
         AssignedAt = assignedAt;
-        CreatedBy = user.Email;
+        CreatedBy = user?.Email ?? "system@email.com";
         MarkCreated();
     }
 }
