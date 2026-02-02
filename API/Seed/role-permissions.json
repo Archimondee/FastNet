@@ -1,0 +1,14 @@
+[
+  {
+    "Role": "Admin",
+    "Permissions": [
+      "*"
+    ]
+  },
+  {
+    "Role": "User",
+    "Permissions": [
+      "users.read"
+    ]
+  }
+]

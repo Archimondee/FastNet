@@ -4,6 +4,7 @@ using Application;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Infrastructure;
+using Infrastructure.Persistence;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Serilog;
@@ -59,5 +60,15 @@ app.Lifetime.ApplicationStarted.Register(() =>
         }
     }
 });
+
+if (app.Environment.IsDevelopment())
+{
+    using var scope = app.Services.CreateScope();
+
+    var initializer = scope.ServiceProvider
+        .GetRequiredService<DatabaseInitializers>();
+
+    await initializer.SeedAsync();
+}
 
 app.Run();

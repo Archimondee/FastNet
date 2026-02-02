@@ -1,3 +1,320 @@
 2026-02-02 10:04:55.129 +07:00 [INF] Registered 2 endpoints in 290 milliseconds.
 2026-02-02 10:04:55.269 +07:00 [INF] No validators found in the system!
 2026-02-02 10:04:55.306 +07:00 [INF] Listening on http://localhost:5284
+2026-02-02 11:16:56.436 +07:00 [ERR] An error occurred using the connection to database 'fastapi' on server 'tcp://localhost:5432'.
+2026-02-02 13:40:13.821 +07:00 [INF] Registered 2 endpoints in 268 milliseconds.
+2026-02-02 13:40:13.916 +07:00 [INF] No validators found in the system!
+2026-02-02 13:40:14.458 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:40:14.598 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 13:40:14.608 +07:00 [INF] SQL (3ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 13:40:14.609 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:40:14.726 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 13:41:32.401 +07:00 [INF] Registered 2 endpoints in 251 milliseconds.
+2026-02-02 13:41:32.502 +07:00 [INF] No validators found in the system!
+2026-02-02 13:41:32.924 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:41:33.062 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 13:41:33.069 +07:00 [INF] SQL (0ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 13:41:33.070 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:41:33.192 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 13:42:38.775 +07:00 [INF] Registered 2 endpoints in 276 milliseconds.
+2026-02-02 13:42:38.865 +07:00 [INF] No validators found in the system!
+2026-02-02 13:42:39.266 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:42:39.426 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 13:42:39.433 +07:00 [INF] SQL (0ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 13:42:39.435 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:42:39.559 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 13:44:06.678 +07:00 [INF] Registered 2 endpoints in 253 milliseconds.
+2026-02-02 13:44:06.770 +07:00 [INF] No validators found in the system!
+2026-02-02 13:44:07.180 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:44:07.324 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 13:44:07.332 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 13:44:07.339 +07:00 [INF] SQL (5ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:44:07.455 +07:00 [INF] SQL (4ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 13:45:12.486 +07:00 [INF] Registered 2 endpoints in 243 milliseconds.
+2026-02-02 13:45:12.582 +07:00 [INF] No validators found in the system!
+2026-02-02 13:45:13.012 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:45:13.157 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 13:45:13.165 +07:00 [INF] SQL (0ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 13:45:13.166 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:45:13.291 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 13:48:44.546 +07:00 [INF] Registered 2 endpoints in 237 milliseconds.
+2026-02-02 13:48:44.637 +07:00 [INF] No validators found in the system!
+2026-02-02 13:48:45.033 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:48:45.186 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 13:48:45.193 +07:00 [INF] SQL (0ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 13:48:45.194 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:48:45.313 +07:00 [INF] SQL (3ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 13:54:42.897 +07:00 [INF] Registered 2 endpoints in 239 milliseconds.
+2026-02-02 13:54:42.983 +07:00 [INF] No validators found in the system!
+2026-02-02 13:54:43.388 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:54:43.516 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 13:54:43.527 +07:00 [INF] SQL (4ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 13:54:43.529 +07:00 [INF] SQL (1ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:54:43.644 +07:00 [INF] SQL (3ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 13:54:44.473 +07:00 [INF] SQL (19ms)
+INSERT INTO permissions ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+INSERT INTO permissions ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17);
+INSERT INTO permissions ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26);
+INSERT INTO permissions ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35);
+INSERT INTO roles ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43, @p44);
+INSERT INTO roles ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p45, @p46, @p47, @p48, @p49, @p50, @p51, @p52, @p53);
+INSERT INTO users ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Email", "FirstName", "LastName", "Password", "UpdatedAt", "UpdatedBy")
+VALUES (@p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64)
+RETURNING "IsActive";
+INSERT INTO users ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Email", "FirstName", "LastName", "Password", "UpdatedAt", "UpdatedBy")
+VALUES (@p65, @p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75)
+RETURNING "IsActive";
+INSERT INTO user_roles ("RoleId", "UserId", "AssignedAt", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p76, @p77, @p78, @p79, @p80, @p81, @p82, @p83, @p84, @p85);
+INSERT INTO user_roles ("RoleId", "UserId", "AssignedAt", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p86, @p87, @p88, @p89, @p90, @p91, @p92, @p93, @p94, @p95);
+
+2026-02-02 13:54:44.510 +07:00 [INF] Listening on http://localhost:5284
+2026-02-02 13:56:53.075 +07:00 [INF] Registered 2 endpoints in 248 milliseconds.
+2026-02-02 13:56:53.171 +07:00 [INF] No validators found in the system!
+2026-02-02 13:56:53.560 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:56:53.747 +07:00 [INF] SQL (18ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 13:56:53.755 +07:00 [INF] SQL (0ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 13:56:53.756 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:56:53.873 +07:00 [INF] SQL (3ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 13:56:53.904 +07:00 [INF] Listening on http://localhost:5284
+2026-02-02 13:59:06.548 +07:00 [INF] Registered 2 endpoints in 193 milliseconds.
+2026-02-02 13:59:06.639 +07:00 [INF] No validators found in the system!
+2026-02-02 13:59:07.044 +07:00 [INF] SQL (13ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:59:07.191 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 13:59:07.199 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 13:59:07.200 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 13:59:07.312 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 13:59:07.342 +07:00 [INF] Listening on http://localhost:5284
+2026-02-02 14:13:00.332 +07:00 [INF] Registered 2 endpoints in 400 milliseconds.
+2026-02-02 14:13:00.497 +07:00 [INF] No validators found in the system!
+2026-02-02 14:13:00.967 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 14:13:01.097 +07:00 [INF] SQL (6ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-02 14:13:01.105 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-02 14:13:01.106 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-02 14:13:01.235 +07:00 [INF] SQL (3ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-02 14:13:02.103 +07:00 [INF] SQL (10ms)
+INSERT INTO permissions ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+INSERT INTO permissions ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17);
+INSERT INTO permissions ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26);
+INSERT INTO permissions ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35);
+INSERT INTO roles ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43, @p44);
+INSERT INTO roles ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Description", "Name", "UpdatedAt", "UpdatedBy")
+VALUES (@p45, @p46, @p47, @p48, @p49, @p50, @p51, @p52, @p53);
+
+2026-02-02 14:13:02.126 +07:00 [INF] SQL (2ms)
+INSERT INTO users ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Email", "FirstName", "LastName", "Password", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+RETURNING "IsActive";
+INSERT INTO users ("Id", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Email", "FirstName", "LastName", "Password", "UpdatedAt", "UpdatedBy")
+VALUES (@p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21)
+RETURNING "IsActive";
+
+2026-02-02 14:13:02.176 +07:00 [INF] SQL (9ms)
+INSERT INTO role_permissions ("PermissionId", "RoleId", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "RolePermissionPermissionId", "RolePermissionRoleId", "UpdatedAt", "UpdatedBy")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+INSERT INTO role_permissions ("PermissionId", "RoleId", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "RolePermissionPermissionId", "RolePermissionRoleId", "UpdatedAt", "UpdatedBy")
+VALUES (@p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+INSERT INTO role_permissions ("PermissionId", "RoleId", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "RolePermissionPermissionId", "RolePermissionRoleId", "UpdatedAt", "UpdatedBy")
+VALUES (@p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32);
+INSERT INTO role_permissions ("PermissionId", "RoleId", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "RolePermissionPermissionId", "RolePermissionRoleId", "UpdatedAt", "UpdatedBy")
+VALUES (@p33, @p34, @p35, @p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43);
+INSERT INTO role_permissions ("PermissionId", "RoleId", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "RolePermissionPermissionId", "RolePermissionRoleId", "UpdatedAt", "UpdatedBy")
+VALUES (@p44, @p45, @p46, @p47, @p48, @p49, @p50, @p51, @p52, @p53, @p54);
+INSERT INTO user_roles ("RoleId", "UserId", "AssignedAt", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64);
+INSERT INTO user_roles ("RoleId", "UserId", "AssignedAt", "CreatedAt", "CreatedBy", "DeletedAt", "DeletedBy", "Id", "UpdatedAt", "UpdatedBy")
+VALUES (@p65, @p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74);
+
+2026-02-02 14:13:02.206 +07:00 [INF] Listening on http://localhost:5284

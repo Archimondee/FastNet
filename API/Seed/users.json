@@ -1,0 +1,18 @@
+[
+  {
+    "Email": "admin@email.com",
+    "Password": "password",
+    "FirstName": "Admin",
+    "LastName": "Admin",
+    "IsActive": true,
+    "Role": "Admin"
+  },
+  {
+    "Email": "user@email.com",
+    "Password": "password",
+    "FirstName": "User",
+    "LastName": "User",
+    "IsActive": true,
+    "Role": "User"
+  }
+]

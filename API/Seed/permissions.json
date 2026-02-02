@@ -1,0 +1,18 @@
+[
+  {
+    "Name": "users.read",
+    "Description": "Read Users"
+  },
+  {
+    "Name": "users.create",
+    "Description": "Create Users"
+  },
+  {
+    "Name": "users.update",
+    "Description": "Update Users"
+  },
+  {
+    "Name": "users.delete",
+    "Description": "Delete Users"
+  }
+]
