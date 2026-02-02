@@ -7,7 +7,7 @@ public sealed class CreateUserMapper
     : Mapper<CreateUserRequest, CreateUserResponse, User>
 {
     public override User ToEntity(CreateUserRequest r)
-        => new(r.Email, r.Password);
+        => new(r.Email, r.Password, r.FirstName, r.LastName, r.IsActive);
 
     public override CreateUserResponse FromEntity(User e)
         => new()

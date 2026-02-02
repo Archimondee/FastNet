@@ -12,11 +12,11 @@ public class Permission : BaseEntity
     {
     }
 
-    public Permission(string name, string description)
+    public Permission(string name, string description, User user)
     {
         Name = name;
         Description = description;
-        CreatedBy = name;
+        CreatedBy = user.Email;
         MarkCreated();
     }
 

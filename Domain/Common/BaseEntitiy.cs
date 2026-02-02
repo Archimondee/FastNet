@@ -39,4 +39,12 @@ public abstract class BaseEntity
         DeletedAt = DateTime.UtcNow;
         DeletedBy = deletedBy;
     }
+
+    public void MarkRestored(string? updatedBy = null)
+    {
+        DeletedAt = null;
+        DeletedBy = null;
+        UpdatedAt = DateTime.UtcNow;
+        UpdatedBy = updatedBy;
+    }
 }

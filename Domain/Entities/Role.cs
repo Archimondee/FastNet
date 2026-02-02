@@ -4,19 +4,20 @@ namespace Domain.Entities;
 
 public class Role : BaseEntity
 {
-    public string Name { get; private set; } = default!;
+    public string Name { get; private set; } = null!;
 
-    public string Description { get; private set; } = default!;
+    public string Description { get; private set; } = null!;
+
 
     private Role()
     {
     }
 
-    public Role(string name, string description)
+    public Role(string name, string description, User user)
     {
         Name = name;
         Description = description;
-        CreatedBy = name;
+        CreatedBy = user.Email;
         MarkCreated();
     }
 

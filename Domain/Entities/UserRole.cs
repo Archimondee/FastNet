@@ -1,12 +1,14 @@
+using Domain.Common;
+
 namespace Domain.Entities;
 
-public class UserRole
+public class UserRole : BaseEntity
 {
-    public string UserId { get; private set; } = default!;
+    public Guid UserId { get; private set; }
 
-    public string RoleId { get; private set; } = default!;
+    public Guid RoleId { get; private set; }
 
-    public DateTime AssignedAt { get; private set; } = default!;
+    public DateTime AssignedAt { get; private set; }
 
     public User User { get; set; } = null!;
 
@@ -16,12 +18,14 @@ public class UserRole
     {
     }
 
-    public UserRole(string userId, string roleId, User user, Role role, DateTime assignedAt)
+    public UserRole(Guid userId, Guid roleId, User user, Role role, DateTime assignedAt)
     {
         UserId = userId;
         RoleId = roleId;
         User = user;
         Role = role;
         AssignedAt = assignedAt;
+        CreatedBy = user.Email;
+        MarkCreated();
     }
 }

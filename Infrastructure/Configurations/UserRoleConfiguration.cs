@@ -12,12 +12,10 @@ public class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
     builder.HasKey(x => new { x.UserId, x.RoleId });
     builder.HasOne(x => x.User)
       .WithMany(x => x.UserRoles)
-      .HasForeignKey(x => x.UserId)
-      .OnDelete(DeleteBehavior.Cascade);
+      .HasForeignKey(x => x.UserId);
     builder.HasOne(x => x.Role)
       .WithMany(x => x.UserRoles)
-      .HasForeignKey(x => x.RoleId)
-      .OnDelete(DeleteBehavior.Cascade);
+      .HasForeignKey(x => x.RoleId);
     builder.HasIndex(x => x.UserId);
     builder.HasIndex(x => x.RoleId);
     builder.HasIndex(x => new { x.UserId, x.RoleId });
