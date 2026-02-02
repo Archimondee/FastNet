@@ -10,5 +10,5 @@ public sealed class CreateUserRequest
 
     public string LastName { get; set; } = default!;
 
-    public bool IsActive { get; set; } = true;
+    public bool? IsActive { get; set; } = true;
 }

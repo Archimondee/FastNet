@@ -14,6 +14,14 @@ public sealed class CreateUserMapper
         {
             Id = e.Id,
             Email = e.Email,
+            FirstName = e.FirstName,
+            LastName = e.LastName,
+            IsActive = e.IsActive,
+            Roles = e.UserRoles.Select(ur => new RoleResponse
+            {
+                Id = ur.RoleId,
+                Name = ur.Role.Name
+            }).ToArray(),
             CreatedAt = e.CreatedAt,
             UpdatedAt = e.UpdatedAt,
             CreatedBy = e.CreatedBy,

@@ -77,8 +77,6 @@ namespace Infrastructure.Migrations
                 {
                     RoleId = table.Column<Guid>(type: "uuid", nullable: false),
                     PermissionId = table.Column<Guid>(type: "uuid", nullable: false),
-                    RolePermissionPermissionId = table.Column<Guid>(type: "uuid", nullable: true),
-                    RolePermissionRoleId = table.Column<Guid>(type: "uuid", nullable: true),
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
@@ -96,11 +94,6 @@ namespace Infrastructure.Migrations
                         principalTable: "permissions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_role_permissions_role_permissions_RolePermissionRoleId_Role~",
-                        columns: x => new { x.RolePermissionRoleId, x.RolePermissionPermissionId },
-                        principalTable: "role_permissions",
-                        principalColumns: new[] { "RoleId", "PermissionId" });
                     table.ForeignKey(
                         name: "FK_role_permissions_roles_RoleId",
                         column: x => x.RoleId,
@@ -161,16 +154,6 @@ namespace Infrastructure.Migrations
                 name: "IX_role_permissions_RoleId",
                 table: "role_permissions",
                 column: "RoleId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_role_permissions_RoleId_PermissionId",
-                table: "role_permissions",
-                columns: new[] { "RoleId", "PermissionId" });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_role_permissions_RolePermissionRoleId_RolePermissionPermiss~",
-                table: "role_permissions",
-                columns: new[] { "RolePermissionRoleId", "RolePermissionPermissionId" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_roles_Id",

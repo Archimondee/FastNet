@@ -131,12 +131,6 @@ namespace Infrastructure.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid?>("RolePermissionPermissionId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("RolePermissionRoleId")
-                        .HasColumnType("uuid");
-
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -148,10 +142,6 @@ namespace Infrastructure.Migrations
                     b.HasIndex("PermissionId");
 
                     b.HasIndex("RoleId");
-
-                    b.HasIndex("RoleId", "PermissionId");
-
-                    b.HasIndex("RolePermissionRoleId", "RolePermissionPermissionId");
 
                     b.ToTable("role_permissions", (string)null);
                 });
@@ -269,10 +259,6 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.RolePermission", null)
-                        .WithMany("RolePermissions")
-                        .HasForeignKey("RolePermissionRoleId", "RolePermissionPermissionId");
-
                     b.Navigation("Permission");
 
                     b.Navigation("Role");
@@ -307,11 +293,6 @@ namespace Infrastructure.Migrations
                     b.Navigation("RolePermissions");
 
                     b.Navigation("UserRoles");
-                });
-
-            modelBuilder.Entity("Domain.Entities.RolePermission", b =>
-                {
-                    b.Navigation("RolePermissions");
                 });
 
             modelBuilder.Entity("Domain.Entities.User", b =>

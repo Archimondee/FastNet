@@ -6,7 +6,7 @@ public sealed class User : BaseEntity
 {
     public string Email { get; private set; } = default!;
 
-    public string Password { get; private set; } = default!;
+    public string Password { get; set; } = default!;
 
     public string FirstName { get; private set; } = default!;
 
@@ -18,13 +18,13 @@ public sealed class User : BaseEntity
     {
     }
 
-    public User(string email, string passwordHash, string firstName, string lastName, bool isActive)
+    public User(string email, string passwordHash, string firstName, string lastName, bool? isActive)
     {
         Email = email;
         Password = passwordHash;
         FirstName = firstName;
         LastName = lastName;
-        IsActive = isActive;
+        IsActive = isActive ?? true;
         CreatedBy = email;
         MarkCreated();
     }
