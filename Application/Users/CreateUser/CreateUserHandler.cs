@@ -18,6 +18,7 @@ public sealed class CreateUserHandler
 
     public async Task<User> Handle(
         User user,
+        string role,
         CancellationToken ct)
     {
         var exists = await _db.Users
@@ -30,11 +31,11 @@ public sealed class CreateUserHandler
 
         _db.Users.Add(user);
 
-        var role = await _db.Roles
-                       .FirstOrDefaultAsync(x => x.Name == "User", ct)
-                   ?? throw new InvalidOperationException("Default role not found");
+        var roles = await _db.Roles
+                        .FirstOrDefaultAsync(x => x.Name == role, ct)
+                    ?? throw new InvalidOperationException("Default role not found");
 
-        _db.UserRoles.Add(new UserRole(user.Id, role.Id, DateTime.UtcNow, user));
+        _db.UserRoles.Add(new UserRole(user.Id, roles.Id, DateTime.UtcNow, user));
 
         await _db.SaveChangesAsync(ct);
 

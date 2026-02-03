@@ -1,3 +1,4 @@
+using Application.Auth.RegisterUser;
 using Application.Behavior;
 using Application.Interface;
 using Application.Users.CreateUser;
@@ -16,6 +17,7 @@ public static class DependencyInjection
             typeof(TransactionBehavior<,>));
 
         services.AddScoped<CreateUserHandler>();
+        services.AddScoped<RegisterUserHandler>();
         return services;
     }
 }

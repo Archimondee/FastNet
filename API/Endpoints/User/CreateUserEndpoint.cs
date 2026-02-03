@@ -23,7 +23,7 @@ public sealed class CreateUserEndpoint
 
     public override void Configure()
     {
-        Post("/api/v1/users");
+        Post("/api/v1/users/create");
         AllowAnonymous();
     }
 
@@ -36,7 +36,7 @@ public sealed class CreateUserEndpoint
         var created = await _executor.ExecuteAsync(
             user,
             ct,
-            () => _handler.Handle(user, ct));
+            () => _handler.Handle(user, req.Role, ct));
 
         const int time = 0;
 
