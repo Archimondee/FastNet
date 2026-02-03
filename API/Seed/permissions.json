@@ -14,5 +14,37 @@
   {
     "Name": "users.delete",
     "Description": "Delete Users"
+  },
+  {
+    "Name": "roles.read",
+    "Description": "Read Roles"
+  },
+  {
+    "Name": "roles.create",
+    "Description": "Create Roles"
+  },
+  {
+    "Name": "roles.update",
+    "Description": "Update Roles"
+  },
+  {
+    "Name": "roles.delete",
+    "Description": "Delete Roles"
+  },
+  {
+    "Name": "permissions.read",
+    "Description": "Read Permissions"
+  },
+  {
+    "Name": "permissions.create",
+    "Description": "Create Permissions"
+  },
+  {
+    "Name": "permissions.update",
+    "Description": "Update Permissions"
+  },
+  {
+    "Name": "permissions.delete",
+    "Description": "Delete Permissions"
   }
 ]
