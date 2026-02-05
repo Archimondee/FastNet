@@ -1,0 +1,204 @@
+2026-02-05 15:26:49.538 +07:00 [INF] Registered 3 endpoints in 418 milliseconds.
+2026-02-05 15:26:50.515 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-05 15:26:50.643 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-05 15:26:50.650 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-05 15:26:50.652 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-05 15:26:50.785 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-05 15:26:50.818 +07:00 [INF] Listening on http://localhost:5284
+2026-02-05 15:27:14.341 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-05 15:27:14.457 +07:00 [INF] HTTP GET /health responded 200 in 121ms 
+2026-02-05 15:27:15.435 +07:00 [INF] HTTP GET /health responded 200 in 1ms 
+2026-02-05 15:27:15.609 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 0ms 
+2026-02-05 15:27:19.064 +07:00 [INF] HTTP GET /swagger responded 302 in 3ms 
+2026-02-05 15:27:19.201 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 129ms 
+2026-02-05 15:27:19.259 +07:00 [INF] HTTP GET /swagger/index.css responded 304 in 1ms 
+2026-02-05 15:27:19.274 +07:00 [INF] HTTP GET /swagger/swagger-ui.css responded 200 in 19ms 
+2026-02-05 15:27:19.286 +07:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 31ms 
+2026-02-05 15:27:19.294 +07:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 3ms 
+2026-02-05 15:27:19.324 +07:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 68ms 
+2026-02-05 15:27:19.381 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 2ms 
+2026-02-05 15:27:19.381 +07:00 [INF] HTTP GET /swagger/favicon-32x32.png responded 304 in 0ms 
+2026-02-05 15:27:19.777 +07:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 8ms 
+2026-02-05 15:27:26.072 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 2ms 
+2026-02-05 15:27:26.168 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 0ms 
+2026-02-05 15:27:41.687 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 4ms 
+2026-02-05 15:27:41.788 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 4ms 
+2026-02-05 15:28:10.728 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 45ms 
+2026-02-05 15:28:11.078 +07:00 [INF] HTTP GET /swagger/swagger-ui.css.map responded 404 in 9ms 
+2026-02-05 15:28:14.052 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 15ms 
+2026-02-05 15:28:14.079 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 0ms 
+2026-02-05 15:28:14.199 +07:00 [INF] HTTP GET /swagger/swagger-ui.css.map responded 404 in 0ms 
+2026-02-05 15:28:14.411 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 2ms 
+2026-02-05 15:29:14.973 +07:00 [INF] Registered 3 endpoints in 270 milliseconds.
+2026-02-05 15:29:15.526 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-05 15:29:15.657 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-05 15:29:15.665 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-05 15:29:15.666 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-05 15:29:15.778 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-05 15:29:15.806 +07:00 [INF] Listening on http://localhost:5284
+2026-02-05 15:29:15.967 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-05 15:29:16.023 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 56ms 
+2026-02-05 15:29:16.151 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 1ms 
+2026-02-05 15:29:16.252 +07:00 [INF] HTTP GET /swagger/swagger-ui.css.map responded 404 in 0ms 
+2026-02-05 15:29:16.465 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 3ms 
+2026-02-05 15:29:16.975 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 274ms 
+2026-02-05 15:39:11.882 +07:00 [INF] Registered 3 endpoints in 235 milliseconds.
+2026-02-05 15:39:12.369 +07:00 [INF] SQL (10ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-05 15:39:12.502 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-05 15:39:12.510 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-05 15:39:12.511 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-05 15:39:12.622 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-05 15:39:12.650 +07:00 [INF] Listening on http://localhost:5284
+2026-02-05 15:39:16.901 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-05 15:39:16.978 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 77ms 
+2026-02-05 15:39:17.110 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 1ms 
+2026-02-05 15:39:17.227 +07:00 [INF] HTTP GET /swagger/swagger-ui.css.map responded 404 in 0ms 
+2026-02-05 15:39:17.499 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 1ms 
+2026-02-05 15:39:18.048 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 401ms 
+2026-02-05 15:39:58.797 +07:00 [INF] Registered 3 endpoints in 249 milliseconds.
+2026-02-05 15:39:59.500 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-05 15:39:59.633 +07:00 [INF] SQL (3ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-05 15:39:59.640 +07:00 [INF] SQL (0ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-05 15:39:59.641 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-05 15:39:59.756 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-05 15:39:59.784 +07:00 [INF] Listening on http://localhost:5284
+2026-02-05 15:40:02.428 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-05 15:40:02.498 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 70ms 
+2026-02-05 15:40:02.604 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 9ms 
+2026-02-05 15:40:02.714 +07:00 [INF] HTTP GET /swagger/swagger-ui.css.map responded 404 in 1ms 
+2026-02-05 15:40:02.905 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 2ms 
+2026-02-05 15:40:03.346 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 267ms 
+2026-02-05 15:46:47.525 +07:00 [INF] Registered 3 endpoints in 207 milliseconds.
+2026-02-05 15:46:48.137 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-05 15:46:48.276 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-05 15:46:48.284 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-05 15:46:48.285 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-05 15:46:48.402 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-05 15:46:48.429 +07:00 [INF] Listening on http://localhost:5284
+2026-02-05 15:46:52.230 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-05 15:46:52.317 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 87ms 
+2026-02-05 15:46:52.454 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 0ms 
+2026-02-05 15:46:52.618 +07:00 [INF] HTTP GET /swagger/swagger-ui.css.map responded 404 in 0ms 
+2026-02-05 15:46:52.814 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 1ms 
+2026-02-05 15:46:53.370 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 344ms 
+2026-02-05 15:48:17.078 +07:00 [INF] Registered 3 endpoints in 222 milliseconds.
+2026-02-05 15:48:17.587 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-05 15:48:17.722 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-05 15:48:17.729 +07:00 [INF] SQL (0ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-05 15:48:17.730 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-05 15:48:17.839 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-05 15:48:17.865 +07:00 [INF] Listening on http://localhost:5284
+2026-02-05 15:48:21.562 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-05 15:48:21.631 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 69ms 
+2026-02-05 15:48:21.755 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 1ms 
+2026-02-05 15:48:21.897 +07:00 [INF] HTTP GET /swagger/swagger-ui.css.map responded 404 in 2ms 
+2026-02-05 15:48:22.067 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 3ms 
+2026-02-05 15:48:22.517 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 257ms 

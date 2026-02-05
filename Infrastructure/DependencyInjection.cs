@@ -1,4 +1,6 @@
 using Application.Interface;
+using FastEndpoints.Security;
+using Infrastructure.Auth;
 using Infrastructure.Persistence;
 using Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
@@ -31,6 +33,12 @@ public static class DependencyInjection
         services.AddScoped<ISecurityHasher, BCryptPasswordHasher>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<DatabaseInitializers>();
+
+        services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+        services.AddAuthenticationJwtBearer(o =>
+        {
+            o.SigningKey = configuration.GetSection("Jwt").Get<JwtSettings>()!.Secret;
+        });
         return services;
     }
 }

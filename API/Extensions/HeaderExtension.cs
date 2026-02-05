@@ -26,8 +26,8 @@ public sealed class SecurityHeadersMiddleware
         headers["X-Content-Type-Options"] = "nosniff";
         headers["X-XSS-Protection"] = "1; mode=block";
         headers["Referrer-Policy"] = "no-referrer";
-        headers["Content-Security-Policy"] =
-            "default-src 'self'; frame-ancestors 'none';";
+        // headers["Content-Security-Policy"] =
+        //     "default-src 'self'; frame-ancestors 'none';";
 
         await _next(context);
     }

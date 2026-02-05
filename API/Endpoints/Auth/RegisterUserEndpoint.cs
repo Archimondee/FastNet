@@ -23,8 +23,17 @@ public sealed class RegisterUserEndpoint
 
   public override void Configure()
   {
-    Post("/api/v1/auth/register");
+    RoutePrefixOverride("api/v1");
+    Post("/auth/register");
     AllowAnonymous();
+
+    Tags("Auth");
+    Summary(s =>
+    {
+      s.Summary = "Register a new user";
+      s.Response<RegisterUserResponse>(200, "User successfully registered");
+      s.Response(400, "Validation error");
+    });
   }
 
   public override async Task HandleAsync(

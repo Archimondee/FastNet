@@ -23,8 +23,15 @@ public sealed class CreateUserEndpoint
 
     public override void Configure()
     {
-        Post("/api/v1/users/create");
+        RoutePrefixOverride("api/v1");
+        Post("/users/create");
         AllowAnonymous();
+        Summary(s =>
+        {
+            s.Summary = "Create a new user";
+            s.Response<CreateUserResponse>(200, "User successfully created");
+            s.Response(400, "Validation error");
+        });
     }
 
     public override async Task HandleAsync(
