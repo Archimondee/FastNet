@@ -1,3 +1,4 @@
+using Application.Auth.LoginUser;
 using Application.Auth.RegisterUser;
 using Application.Behavior;
 using Application.Interface;
@@ -18,6 +19,7 @@ public static class DependencyInjection
 
         services.AddScoped<CreateUserHandler>();
         services.AddScoped<RegisterUserHandler>();
+        services.AddScoped<LoginUserHandler>();
         return services;
     }
 }

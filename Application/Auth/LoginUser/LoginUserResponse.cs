@@ -2,7 +2,10 @@
 
 public class LoginUserResponse
 {
-  public new Guid Id { get; set; }
+  public string AccessToken { get; set; } = default!;
+
+  //public string RefreshToken { get; set; } = default!;
+  public Guid Id { get; set; }
 
   public string Email { get; set; } = default!;
 

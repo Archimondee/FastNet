@@ -29,6 +29,10 @@ public static class DependencyInjection
             options.AddInterceptors(interceptor);
         });
 
+        services.Configure<JwtSettings>(
+            configuration.GetSection("Jwt")
+        );
+
         services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<AppDbContext>());
         services.AddScoped<ISecurityHasher, BCryptPasswordHasher>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -39,6 +43,9 @@ public static class DependencyInjection
         {
             o.SigningKey = configuration.GetSection("Jwt").Get<JwtSettings>()!.Secret;
         });
+
+        services.AddAuthentication();
+        services.AddAuthorization();
         return services;
     }
 }
