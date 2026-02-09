@@ -1,0 +1,549 @@
+2026-02-09 16:06:06.835 +07:00 [INF] Registered 4 endpoints in 404 milliseconds.
+2026-02-09 16:06:07.681 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-09 16:06:07.917 +07:00 [INF] SQL (11ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-09 16:06:07.934 +07:00 [INF] SQL (5ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-09 16:06:07.937 +07:00 [INF] SQL (1ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-09 16:06:08.140 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-09 16:06:08.180 +07:00 [WRN] No XML encryptor configured. Key {1b7b2ae1-bae7-441b-8195-105432f66c0e} may be persisted to storage in unencrypted form.
+2026-02-09 16:06:08.399 +07:00 [INF] Listening on http://localhost:5284
+2026-02-09 16:06:08.572 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-09 16:06:08.639 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 66ms 
+2026-02-09 16:06:08.692 +07:00 [INF] HTTP GET /swagger/swagger-ui.css responded 200 in 10ms 
+2026-02-09 16:06:08.711 +07:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 19ms 
+2026-02-09 16:06:08.721 +07:00 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 2ms 
+2026-02-09 16:06:08.757 +07:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 67ms 
+2026-02-09 16:06:08.989 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 2ms 
+2026-02-09 16:06:09.296 +07:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 16ms 
+2026-02-09 16:06:09.645 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 455ms 
+2026-02-09 16:06:25.500 +07:00 [INF] SQL (30ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-09 16:06:25.586 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-09 16:06:25.635 +07:00 [INF] SQL (33ms)
+SELECT u1."Id", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Email", u1."FirstName", u1."IsActive", u1."LastName", u1."Password", u1."UpdatedAt", u1."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0
+    LIMIT 1
+) AS u1
+LEFT JOIN (
+    SELECT u0."UserId", u0."RoleId", u0."AssignedAt", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."DeletedBy", u0."Id", u0."UpdatedAt", u0."UpdatedBy", r0."Id" AS "Id0", r0."CreatedAt" AS "CreatedAt0", r0."CreatedBy" AS "CreatedBy0", r0."DeletedAt" AS "DeletedAt0", r0."DeletedBy" AS "DeletedBy0", r0."Description", r0."Name", r0."UpdatedAt" AS "UpdatedAt0", r0."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    LEFT JOIN (
+        SELECT r1."RoleId", r1."PermissionId", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Id", r1."UpdatedAt", r1."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r1
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r1."PermissionId" = p0."Id"
+        WHERE r1."DeletedAt" IS NULL
+    ) AS s ON r0."Id" = s."RoleId"
+    WHERE u0."DeletedAt" IS NULL
+) AS s0 ON u1."Id" = s0."UserId"
+ORDER BY u1."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-09 16:06:26.328 +07:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 1151ms 
+2026-02-09 16:06:26.328 +07:00 [WRN] Slow HTTP POST /api/v1/auth/login responded 200 in 1151ms 
+2026-02-09 16:08:24.122 +07:00 [INF] Registered 4 endpoints in 283 milliseconds.
+2026-02-09 16:08:24.633 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-09 16:08:24.761 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-09 16:08:24.769 +07:00 [INF] SQL (0ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-09 16:08:24.770 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-09 16:08:24.889 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-09 16:08:24.963 +07:00 [INF] Listening on http://localhost:5284
+2026-02-09 16:08:30.687 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-09 16:08:30.822 +07:00 [INF] SQL (9ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-09 16:08:30.900 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-09 16:08:30.926 +07:00 [INF] SQL (8ms)
+SELECT u1."Id", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Email", u1."FirstName", u1."IsActive", u1."LastName", u1."Password", u1."UpdatedAt", u1."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0
+    LIMIT 1
+) AS u1
+LEFT JOIN (
+    SELECT u0."UserId", u0."RoleId", u0."AssignedAt", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."DeletedBy", u0."Id", u0."UpdatedAt", u0."UpdatedBy", r0."Id" AS "Id0", r0."CreatedAt" AS "CreatedAt0", r0."CreatedBy" AS "CreatedBy0", r0."DeletedAt" AS "DeletedAt0", r0."DeletedBy" AS "DeletedBy0", r0."Description", r0."Name", r0."UpdatedAt" AS "UpdatedAt0", r0."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    LEFT JOIN (
+        SELECT r1."RoleId", r1."PermissionId", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Id", r1."UpdatedAt", r1."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r1
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r1."PermissionId" = p0."Id"
+        WHERE r1."DeletedAt" IS NULL
+    ) AS s ON r0."Id" = s."RoleId"
+    WHERE u0."DeletedAt" IS NULL
+) AS s0 ON u1."Id" = s0."UserId"
+ORDER BY u1."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-09 16:08:31.608 +07:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 922ms 
+2026-02-09 16:08:31.609 +07:00 [WRN] Slow HTTP POST /api/v1/auth/login responded 200 in 922ms 
+2026-02-09 16:10:24.076 +07:00 [INF] Registered 4 endpoints in 346 milliseconds.
+2026-02-09 16:10:25.047 +07:00 [INF] SQL (16ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-09 16:10:25.249 +07:00 [INF] SQL (6ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-09 16:10:25.265 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-09 16:10:25.269 +07:00 [INF] SQL (2ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-09 16:10:25.489 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-09 16:10:25.618 +07:00 [INF] Listening on http://localhost:5284
+2026-02-09 16:10:26.721 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-09 16:10:26.817 +07:00 [INF] SQL (10ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-09 16:10:26.897 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-09 16:10:26.926 +07:00 [INF] SQL (6ms)
+SELECT u1."Id", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Email", u1."FirstName", u1."IsActive", u1."LastName", u1."Password", u1."UpdatedAt", u1."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0
+    LIMIT 1
+) AS u1
+LEFT JOIN (
+    SELECT u0."UserId", u0."RoleId", u0."AssignedAt", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."DeletedBy", u0."Id", u0."UpdatedAt", u0."UpdatedBy", r0."Id" AS "Id0", r0."CreatedAt" AS "CreatedAt0", r0."CreatedBy" AS "CreatedBy0", r0."DeletedAt" AS "DeletedAt0", r0."DeletedBy" AS "DeletedBy0", r0."Description", r0."Name", r0."UpdatedAt" AS "UpdatedAt0", r0."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    LEFT JOIN (
+        SELECT r1."RoleId", r1."PermissionId", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Id", r1."UpdatedAt", r1."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r1
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r1."PermissionId" = p0."Id"
+        WHERE r1."DeletedAt" IS NULL
+    ) AS s ON r0."Id" = s."RoleId"
+    WHERE u0."DeletedAt" IS NULL
+) AS s0 ON u1."Id" = s0."UserId"
+ORDER BY u1."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-09 16:10:27.538 +07:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 818ms 
+2026-02-09 16:10:27.539 +07:00 [WRN] Slow HTTP POST /api/v1/auth/login responded 200 in 818ms 
+2026-02-09 16:10:42.986 +07:00 [INF] Registered 4 endpoints in 178 milliseconds.
+2026-02-09 16:10:43.621 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-09 16:10:43.769 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-09 16:10:43.782 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-09 16:10:43.784 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-09 16:10:43.918 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-09 16:10:43.980 +07:00 [INF] Listening on http://localhost:5284
+2026-02-09 16:10:46.740 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-09 16:10:46.822 +07:00 [INF] SQL (5ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-09 16:10:46.890 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-09 16:10:46.918 +07:00 [INF] SQL (11ms)
+SELECT u1."Id", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Email", u1."FirstName", u1."IsActive", u1."LastName", u1."Password", u1."UpdatedAt", u1."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0
+    LIMIT 1
+) AS u1
+LEFT JOIN (
+    SELECT u0."UserId", u0."RoleId", u0."AssignedAt", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."DeletedBy", u0."Id", u0."UpdatedAt", u0."UpdatedBy", r0."Id" AS "Id0", r0."CreatedAt" AS "CreatedAt0", r0."CreatedBy" AS "CreatedBy0", r0."DeletedAt" AS "DeletedAt0", r0."DeletedBy" AS "DeletedBy0", r0."Description", r0."Name", r0."UpdatedAt" AS "UpdatedAt0", r0."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    LEFT JOIN (
+        SELECT r1."RoleId", r1."PermissionId", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Id", r1."UpdatedAt", r1."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r1
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r1."PermissionId" = p0."Id"
+        WHERE r1."DeletedAt" IS NULL
+    ) AS s ON r0."Id" = s."RoleId"
+    WHERE u0."DeletedAt" IS NULL
+) AS s0 ON u1."Id" = s0."UserId"
+ORDER BY u1."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-09 16:10:47.535 +07:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 797ms 
+2026-02-09 16:10:47.535 +07:00 [WRN] Slow HTTP POST /api/v1/auth/login responded 200 in 797ms 
+2026-02-09 16:14:45.709 +07:00 [INF] Registered 4 endpoints in 234 milliseconds.
+2026-02-09 16:14:46.304 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-09 16:14:46.444 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-09 16:14:46.454 +07:00 [INF] SQL (2ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-09 16:14:46.455 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-09 16:14:46.576 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-09 16:14:46.640 +07:00 [INF] Listening on http://localhost:5284
+2026-02-09 16:14:52.507 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-09 16:14:52.803 +07:00 [INF] SQL (6ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-09 16:14:52.879 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-09 16:14:52.903 +07:00 [INF] SQL (9ms)
+SELECT u1."Id", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Email", u1."FirstName", u1."IsActive", u1."LastName", u1."Password", u1."UpdatedAt", u1."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0
+    LIMIT 1
+) AS u1
+LEFT JOIN (
+    SELECT u0."UserId", u0."RoleId", u0."AssignedAt", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."DeletedBy", u0."Id", u0."UpdatedAt", u0."UpdatedBy", r0."Id" AS "Id0", r0."CreatedAt" AS "CreatedAt0", r0."CreatedBy" AS "CreatedBy0", r0."DeletedAt" AS "DeletedAt0", r0."DeletedBy" AS "DeletedBy0", r0."Description", r0."Name", r0."UpdatedAt" AS "UpdatedAt0", r0."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    LEFT JOIN (
+        SELECT r1."RoleId", r1."PermissionId", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Id", r1."UpdatedAt", r1."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r1
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r1."PermissionId" = p0."Id"
+        WHERE r1."DeletedAt" IS NULL
+    ) AS s ON r0."Id" = s."RoleId"
+    WHERE u0."DeletedAt" IS NULL
+) AS s0 ON u1."Id" = s0."UserId"
+ORDER BY u1."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-09 16:14:53.496 +07:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 992ms 
+2026-02-09 16:14:53.497 +07:00 [WRN] Slow HTTP POST /api/v1/auth/login responded 200 in 992ms 
+2026-02-09 16:15:47.721 +07:00 [INF] Registered 4 endpoints in 251 milliseconds.
+2026-02-09 16:15:48.389 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-09 16:15:48.520 +07:00 [INF] SQL (3ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-09 16:15:48.527 +07:00 [INF] SQL (0ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-09 16:15:48.528 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-09 16:15:48.640 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-09 16:15:48.705 +07:00 [INF] Listening on http://localhost:5284
+2026-02-09 16:15:49.974 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-09 16:15:50.050 +07:00 [INF] SQL (5ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-09 16:15:50.117 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-09 16:15:50.138 +07:00 [INF] SQL (5ms)
+SELECT u1."Id", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Email", u1."FirstName", u1."IsActive", u1."LastName", u1."Password", u1."UpdatedAt", u1."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0
+    LIMIT 1
+) AS u1
+LEFT JOIN (
+    SELECT u0."UserId", u0."RoleId", u0."AssignedAt", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."DeletedBy", u0."Id", u0."UpdatedAt", u0."UpdatedBy", r0."Id" AS "Id0", r0."CreatedAt" AS "CreatedAt0", r0."CreatedBy" AS "CreatedBy0", r0."DeletedAt" AS "DeletedAt0", r0."DeletedBy" AS "DeletedBy0", r0."Description", r0."Name", r0."UpdatedAt" AS "UpdatedAt0", r0."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    LEFT JOIN (
+        SELECT r1."RoleId", r1."PermissionId", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Id", r1."UpdatedAt", r1."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r1
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r1."PermissionId" = p0."Id"
+        WHERE r1."DeletedAt" IS NULL
+    ) AS s ON r0."Id" = s."RoleId"
+    WHERE u0."DeletedAt" IS NULL
+) AS s0 ON u1."Id" = s0."UserId"
+ORDER BY u1."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-09 16:15:50.799 +07:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 825ms 
+2026-02-09 16:15:50.799 +07:00 [WRN] Slow HTTP POST /api/v1/auth/login responded 200 in 825ms 
+2026-02-09 16:18:26.632 +07:00 [INF] Registered 4 endpoints in 298 milliseconds.
+2026-02-09 16:18:27.467 +07:00 [INF] SQL (15ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-09 16:18:27.622 +07:00 [INF] SQL (11ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-09 16:18:27.638 +07:00 [INF] SQL (7ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-09 16:18:27.639 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-09 16:18:27.787 +07:00 [INF] SQL (7ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-09 16:18:27.946 +07:00 [INF] Listening on http://localhost:5284
+2026-02-09 16:18:33.609 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-09 16:18:33.703 +07:00 [INF] SQL (5ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-09 16:18:33.766 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-09 16:18:33.790 +07:00 [INF] SQL (8ms)
+SELECT u1."Id", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Email", u1."FirstName", u1."IsActive", u1."LastName", u1."Password", u1."UpdatedAt", u1."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0
+    LIMIT 1
+) AS u1
+LEFT JOIN (
+    SELECT u0."UserId", u0."RoleId", u0."AssignedAt", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."DeletedBy", u0."Id", u0."UpdatedAt", u0."UpdatedBy", r0."Id" AS "Id0", r0."CreatedAt" AS "CreatedAt0", r0."CreatedBy" AS "CreatedBy0", r0."DeletedAt" AS "DeletedAt0", r0."DeletedBy" AS "DeletedBy0", r0."Description", r0."Name", r0."UpdatedAt" AS "UpdatedAt0", r0."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    LEFT JOIN (
+        SELECT r1."RoleId", r1."PermissionId", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Id", r1."UpdatedAt", r1."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r1
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r1."PermissionId" = p0."Id"
+        WHERE r1."DeletedAt" IS NULL
+    ) AS s ON r0."Id" = s."RoleId"
+    WHERE u0."DeletedAt" IS NULL
+) AS s0 ON u1."Id" = s0."UserId"
+ORDER BY u1."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-09 16:18:34.395 +07:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 786ms 
+2026-02-09 16:18:34.395 +07:00 [WRN] Slow HTTP POST /api/v1/auth/login responded 200 in 786ms 
+2026-02-09 16:19:28.133 +07:00 [INF] Registered 4 endpoints in 240 milliseconds.
+2026-02-09 16:19:28.711 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-09 16:19:28.863 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-09 16:19:28.871 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-09 16:19:28.872 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-09 16:19:28.988 +07:00 [INF] SQL (4ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-09 16:19:29.046 +07:00 [INF] Listening on http://localhost:5284
+2026-02-09 16:19:35.875 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-09 16:19:36.214 +07:00 [INF] SQL (28ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-09 16:19:36.282 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-09 16:19:36.313 +07:00 [INF] SQL (15ms)
+SELECT u1."Id", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Email", u1."FirstName", u1."IsActive", u1."LastName", u1."Password", u1."UpdatedAt", u1."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0
+    LIMIT 1
+) AS u1
+LEFT JOIN (
+    SELECT u0."UserId", u0."RoleId", u0."AssignedAt", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."DeletedBy", u0."Id", u0."UpdatedAt", u0."UpdatedBy", r0."Id" AS "Id0", r0."CreatedAt" AS "CreatedAt0", r0."CreatedBy" AS "CreatedBy0", r0."DeletedAt" AS "DeletedAt0", r0."DeletedBy" AS "DeletedBy0", r0."Description", r0."Name", r0."UpdatedAt" AS "UpdatedAt0", r0."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    LEFT JOIN (
+        SELECT r1."RoleId", r1."PermissionId", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Id", r1."UpdatedAt", r1."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r1
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r1."PermissionId" = p0."Id"
+        WHERE r1."DeletedAt" IS NULL
+    ) AS s ON r0."Id" = s."RoleId"
+    WHERE u0."DeletedAt" IS NULL
+) AS s0 ON u1."Id" = s0."UserId"
+ORDER BY u1."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-09 16:19:36.920 +07:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 1046ms 
+2026-02-09 16:19:36.921 +07:00 [WRN] Slow HTTP POST /api/v1/auth/login responded 200 in 1046ms 
+2026-02-09 16:22:43.925 +07:00 [INF] SQL (19ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-09 16:22:43.946 +07:00 [INF] SQL (16ms)
+SELECT u1."Id", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Email", u1."FirstName", u1."IsActive", u1."LastName", u1."Password", u1."UpdatedAt", u1."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0
+    LIMIT 1
+) AS u1
+LEFT JOIN (
+    SELECT u0."UserId", u0."RoleId", u0."AssignedAt", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."DeletedBy", u0."Id", u0."UpdatedAt", u0."UpdatedBy", r0."Id" AS "Id0", r0."CreatedAt" AS "CreatedAt0", r0."CreatedBy" AS "CreatedBy0", r0."DeletedAt" AS "DeletedAt0", r0."DeletedBy" AS "DeletedBy0", r0."Description", r0."Name", r0."UpdatedAt" AS "UpdatedAt0", r0."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    LEFT JOIN (
+        SELECT r1."RoleId", r1."PermissionId", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Id", r1."UpdatedAt", r1."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r1
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r1."PermissionId" = p0."Id"
+        WHERE r1."DeletedAt" IS NULL
+    ) AS s ON r0."Id" = s."RoleId"
+    WHERE u0."DeletedAt" IS NULL
+) AS s0 ON u1."Id" = s0."UserId"
+ORDER BY u1."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-09 16:22:44.403 +07:00 [INF] HTTP POST /api/v1/auth/login responded 200 in 722ms 
+2026-02-09 16:22:44.403 +07:00 [WRN] Slow HTTP POST /api/v1/auth/login responded 200 in 722ms 

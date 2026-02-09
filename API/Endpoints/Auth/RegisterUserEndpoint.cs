@@ -23,8 +23,7 @@ public sealed class RegisterUserEndpoint
 
   public override void Configure()
   {
-    RoutePrefixOverride("api/v1");
-    Post("/auth/register");
+    Post("auth/register");
     AllowAnonymous();
 
     Tags("Auth");

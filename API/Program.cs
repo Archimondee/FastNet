@@ -51,7 +51,7 @@ app.UseCors();
 app.UseRateLimiter();
 app.UseResponseCaching();
 app.UseResponseCompression();
-app.UseFastEndpoints();
+app.UseFastEndpoints(c => { c.Endpoints.RoutePrefix = "api/v1"; });
 app.UseSwaggerGen();
 
 app.Lifetime.ApplicationStarted.Register(() =>
