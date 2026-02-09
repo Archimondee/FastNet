@@ -1,6 +1,8 @@
+using System.Security.Claims;
 using API.Extensions;
 using API.Middlewares;
 using Application;
+using Application.Services;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using Infrastructure;
@@ -22,6 +24,8 @@ builder.Services.AddResponseCachingExtension();
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(config);
+builder.Services.AddScoped<PermissionService>();
+builder.Services.AddScoped<PermissionMiddleware>();
 
 builder.Services.AddFastEndpoints(o =>
     {
@@ -37,6 +41,8 @@ builder.Services.AddFastEndpoints(o =>
 var app = builder.Build();
 app.UseMiddleware<CorrelationIdMiddleware>();
 app.UseMiddleware<GlobalExceptionMiddleware>();
+app.UseRouting();
+
 app.UseMiddleware<PerformanceMiddleware>();
 
 if (!app.Environment.IsDevelopment())
@@ -51,7 +57,15 @@ app.UseCors();
 app.UseRateLimiter();
 app.UseResponseCaching();
 app.UseResponseCompression();
-app.UseFastEndpoints(c => { c.Endpoints.RoutePrefix = "api/v1"; });
+app.UseAuthentication();
+app.UseAuthorization();
+app.UseMiddleware<PermissionMiddleware>();
+app.UseFastEndpoints(c =>
+{
+    c.Endpoints.RoutePrefix = "api/v1";
+    c.Security.RoleClaimType = ClaimTypes.Role;
+});
+
 app.UseSwaggerGen();
 
 app.Lifetime.ApplicationStarted.Register(() =>

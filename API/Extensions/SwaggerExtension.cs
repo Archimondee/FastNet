@@ -1,4 +1,5 @@
 using FastEndpoints.Swagger;
+using NSwag;
 
 namespace API.Extensions;
 
