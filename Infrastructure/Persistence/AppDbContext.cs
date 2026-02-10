@@ -1,7 +1,10 @@
+using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
+using System.Security.Claims;
 using Application.Interface;
 using Domain.Common;
 using Domain.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence;
@@ -19,9 +22,12 @@ public sealed class AppDbContext
 
     public DbSet<UserRole> UserRoles => Set<UserRole>();
 
-    public AppDbContext(DbContextOptions<AppDbContext> options)
+    private readonly IHttpContextAccessor _httpContextAccessor;
+
+    public AppDbContext(DbContextOptions<AppDbContext> options, IHttpContextAccessor httpContextAccessor)
         : base(options)
     {
+        _httpContextAccessor = httpContextAccessor;
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -67,11 +73,23 @@ public sealed class AppDbContext
 
     private void ApplyAuditInformation()
     {
+        var currentUserEmail = GetCurrentUserEmai();
         foreach (var entry in ChangeTracker.Entries<BaseEntity>())
         {
             if (entry.State == EntityState.Added)
             {
-                entry.Entity.MarkCreated(createdBy: "system");
+                entry.Entity.MarkCreated(createdBy: currentUserEmail);
+            }
+
+            if (entry.State == EntityState.Modified)
+            {
+                entry.Entity.MarkUpdated(updatedBy: currentUserEmail);
+            }
+
+            if (entry.State == EntityState.Deleted)
+            {
+                entry.State = EntityState.Modified;
+                entry.Entity.MarkDeleted(deletedBy: currentUserEmail);
             }
         }
     }
@@ -82,5 +100,17 @@ public sealed class AppDbContext
     {
         builder.Entity<TEntity>()
             .HasQueryFilter(e => e.DeletedAt == null);
+    }
+
+    private string GetCurrentUserEmai()
+    {
+        var user = _httpContextAccessor.HttpContext?.User;
+
+        if (user?.Identity?.IsAuthenticated != true)
+            return "system";
+
+        return
+            user.FindFirstValue(JwtRegisteredClaimNames.Email) ??
+            "system";
     }
 }
