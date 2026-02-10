@@ -10,9 +10,13 @@ public sealed class AppDbContext
     : DbContext, IAppDbContext
 {
     public DbSet<User> Users => Set<User>();
+
     public DbSet<Role> Roles => Set<Role>();
+
     public DbSet<Permission> Permissions => Set<Permission>();
+
     public DbSet<RolePermission> RolePermissions => Set<RolePermission>();
+
     public DbSet<UserRole> UserRoles => Set<UserRole>();
 
     public AppDbContext(DbContextOptions<AppDbContext> options)
@@ -68,17 +72,6 @@ public sealed class AppDbContext
             if (entry.State == EntityState.Added)
             {
                 entry.Entity.MarkCreated(createdBy: "system");
-            }
-
-            if (entry.State == EntityState.Modified)
-            {
-                entry.Entity.MarkUpdated();
-            }
-
-            if (entry.State == EntityState.Deleted)
-            {
-                entry.State = EntityState.Modified;
-                entry.Entity.MarkDeleted();
             }
         }
     }

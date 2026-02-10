@@ -37,7 +37,7 @@ public sealed class RegisterUserHandler
                 ?? throw new InvalidOperationException("Default role not found");
 
     _db.UserRoles.Add(new UserRole(user.Id, roles.Id, DateTime.UtcNow, user));
-    user.MarkCreated(user.Email);
+    user.MarkCreated(createdBy: user.Email);
 
     await _db.SaveChangesAsync(ct);
 
