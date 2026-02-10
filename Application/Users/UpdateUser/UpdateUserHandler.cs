@@ -43,7 +43,7 @@ public sealed class UpdateUserHandler
     if (!string.IsNullOrWhiteSpace(req.LastName))
       user.LastName = req.LastName;
 
-    user.MarkUpdated();
+    user.MarkUpdated(req.Email);
 
     await _db.SaveChangesAsync(ct);
 

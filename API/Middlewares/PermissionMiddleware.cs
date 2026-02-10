@@ -43,6 +43,12 @@ public sealed class PermissionMiddleware : IMiddleware
 
     var requiredPermissions = requirements.Select(r => r.Permission).ToList();
 
+    if (requiredPermissions.Contains("*"))
+    {
+      await next(context);
+      return;
+    }
+
     var allowed = await _evaluator.HasPermissionsAsync(
       roles,
       requiredPermissions

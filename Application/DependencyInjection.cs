@@ -3,6 +3,7 @@ using Application.Auth.RegisterUser;
 using Application.Behavior;
 using Application.Interface;
 using Application.Users.CreateUser;
+using Application.Users.GetMe;
 using Application.Users.UpdateUser;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -22,6 +23,7 @@ public static class DependencyInjection
         services.AddScoped<RegisterUserHandler>();
         services.AddScoped<LoginUserHandler>();
         services.AddScoped<UpdateUserHandler>();
+        services.AddScoped<GetMeHandler>();
         return services;
     }
 }
