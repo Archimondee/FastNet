@@ -25,8 +25,8 @@ public sealed class CreateUserEndpoint
     {
         RoutePrefixOverride("api/v1");
         Post("/users/create");
-        Roles("Admin");
-        Options(o => o.WithMetadata(new RequirePermissionAttribute("permissions.create")));
+        Roles("Admin", "User");
+        Options(o => o.WithMetadata(new RequirePermissionAttribute("users.create")));
         Summary(s =>
         {
             s.Summary = "Create a new user";
