@@ -16,6 +16,7 @@ var config = builder.Configuration;
 var env = builder.Environment;
 
 builder.AddLoggingPlatform();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddCorsExtensions(config, env);
 builder.Services.AddSwaggerExtensions();
 builder.Services.AddRateLimitExtension();

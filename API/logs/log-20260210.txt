@@ -777,3 +777,217 @@ WHERE "Id" = @p3;
 
 2026-02-10 14:50:40.545 +07:00 [INF] HTTP PUT /api/v1/users/f9f3265b-e4ea-47b2-9aeb-5b9bb4142537 responded 200 in 1153ms 
 2026-02-10 14:50:40.546 +07:00 [WRN] Slow HTTP PUT /api/v1/users/f9f3265b-e4ea-47b2-9aeb-5b9bb4142537 responded 200 in 1153ms 
+2026-02-10 14:53:02.601 +07:00 [INF] Registered 6 endpoints in 369 milliseconds.
+2026-02-10 14:53:03.229 +07:00 [INF] SQL (13ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-10 14:53:03.360 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-10 14:53:03.368 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-10 14:53:03.370 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-10 14:53:03.484 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-10 14:53:03.553 +07:00 [INF] Listening on http://localhost:5284
+2026-02-10 15:11:11.218 +07:00 [INF] Registered 7 endpoints in 263 milliseconds.
+2026-02-10 15:11:11.928 +07:00 [INF] SQL (14ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-10 15:11:12.093 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-10 15:11:12.102 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-10 15:11:12.104 +07:00 [INF] SQL (1ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-10 15:11:12.226 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-10 15:11:12.286 +07:00 [INF] Listening on http://localhost:5284
+2026-02-10 15:11:31.698 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-10 15:11:31.913 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 219ms 
+2026-02-10 15:11:32.447 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 4ms 
+2026-02-10 15:11:33.062 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 446ms 
+2026-02-10 15:11:39.505 +07:00 [INF] Checking permissions for roles: Admin
+2026-02-10 15:11:39.814 +07:00 [INF] SQL (49ms)
+SELECT DISTINCT p0."Name"
+FROM roles AS r
+INNER JOIN (
+    SELECT r0."RoleId", r0."PermissionId"
+    FROM role_permissions AS r0
+    WHERE r0."DeletedAt" IS NULL
+) AS r1 ON r."Id" = r1."RoleId"
+INNER JOIN (
+    SELECT p."Id", p."Name"
+    FROM permissions AS p
+    WHERE p."DeletedAt" IS NULL
+) AS p0 ON r1."PermissionId" = p0."Id"
+WHERE r."DeletedAt" IS NULL AND r."Name" = ANY (@__rolesList_0)
+2026-02-10 15:11:39.815 +07:00 [INF] Found 12 permissions: permissions.create, permissions.delete, permissions.read, permissions.update, roles.create, roles.delete, roles.read, roles.update, users.create, users.delete, users.read, users.update
+2026-02-10 15:11:39.815 +07:00 [INF] Permission check result: true
+2026-02-10 15:11:39.866 +07:00 [INF] SQL (2ms)
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+FROM users AS u
+WHERE u."DeletedAt" IS NULL AND u."Id" = @__id_0
+LIMIT 1
+2026-02-10 15:11:39.936 +07:00 [INF] SQL (3ms)
+UPDATE users SET "DeletedAt" = @p0, "DeletedBy" = @p1
+WHERE "Id" = @p2;
+
+2026-02-10 15:11:39.954 +07:00 [INF] HTTP DELETE /api/v1/users/f9903bea-2034-4c4b-a3dc-3246b15ff36f responded 200 in 514ms 
+2026-02-10 15:11:39.954 +07:00 [WRN] Slow HTTP DELETE /api/v1/users/f9903bea-2034-4c4b-a3dc-3246b15ff36f responded 200 in 514ms 
+2026-02-10 15:11:45.243 +07:00 [INF] Checking permissions for roles: Admin
+2026-02-10 15:11:45.285 +07:00 [INF] SQL (1ms)
+SELECT DISTINCT p0."Name"
+FROM roles AS r
+INNER JOIN (
+    SELECT r0."RoleId", r0."PermissionId"
+    FROM role_permissions AS r0
+    WHERE r0."DeletedAt" IS NULL
+) AS r1 ON r."Id" = r1."RoleId"
+INNER JOIN (
+    SELECT p."Id", p."Name"
+    FROM permissions AS p
+    WHERE p."DeletedAt" IS NULL
+) AS p0 ON r1."PermissionId" = p0."Id"
+WHERE r."DeletedAt" IS NULL AND r."Name" = ANY (@__rolesList_0)
+2026-02-10 15:11:45.285 +07:00 [INF] Found 12 permissions: permissions.create, permissions.delete, permissions.read, permissions.update, roles.create, roles.delete, roles.read, roles.update, users.create, users.delete, users.read, users.update
+2026-02-10 15:11:45.285 +07:00 [INF] Permission check result: true
+2026-02-10 15:11:45.289 +07:00 [INF] SQL (0ms)
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+FROM users AS u
+WHERE u."DeletedAt" IS NULL AND u."Id" = @__id_0
+LIMIT 1
+2026-02-10 15:11:45.294 +07:00 [WRN] Application error | NOT_FOUND | 404 | /api/v1/users/f9903bea-2034-4c4b-a3dc-3246b15ff36f | 97d0851c-d190-429e-9d6f-3061faf43cd2
+2026-02-10 15:11:58.562 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."Email" = @__user_Email_0)
+2026-02-10 15:11:58.606 +07:00 [WRN] Application error | UNAUTHORIZED | 401 | /api/v1/auth/login | e704a512-af81-4332-8b7b-aeb22cc9272a
+2026-02-10 15:22:07.685 +07:00 [INF] Registered 7 endpoints in 278 milliseconds.
+2026-02-10 15:22:08.232 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-10 15:22:08.368 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-10 15:22:08.376 +07:00 [INF] SQL (2ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-10 15:22:08.377 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-10 15:22:08.495 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-10 15:22:08.557 +07:00 [INF] Listening on http://localhost:5284
+2026-02-10 15:22:43.253 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-10 15:22:43.420 +07:00 [INF] Checking permissions for roles: Admin
+2026-02-10 15:22:43.698 +07:00 [INF] SQL (56ms)
+SELECT DISTINCT p0."Name"
+FROM roles AS r
+INNER JOIN (
+    SELECT r0."RoleId", r0."PermissionId"
+    FROM role_permissions AS r0
+    WHERE r0."DeletedAt" IS NULL
+) AS r1 ON r."Id" = r1."RoleId"
+INNER JOIN (
+    SELECT p."Id", p."Name"
+    FROM permissions AS p
+    WHERE p."DeletedAt" IS NULL
+) AS p0 ON r1."PermissionId" = p0."Id"
+WHERE r."DeletedAt" IS NULL AND r."Name" = ANY (@__rolesList_0)
+2026-02-10 15:22:43.701 +07:00 [INF] Found 12 permissions: permissions.create, permissions.delete, permissions.read, permissions.update, roles.create, roles.delete, roles.read, roles.update, users.create, users.delete, users.read, users.update
+2026-02-10 15:22:43.701 +07:00 [INF] Permission check result: true
+2026-02-10 15:22:43.759 +07:00 [INF] SQL (1ms)
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+FROM users AS u
+WHERE u."DeletedAt" IS NULL AND u."Id" = @__id_0
+LIMIT 1
+2026-02-10 15:22:43.841 +07:00 [INF] HTTP DELETE /api/v1/users/f9903bea-2034-4c4b-a3dc-3246b15ff36f responded 200 in 589ms 
+2026-02-10 15:22:43.841 +07:00 [WRN] Slow HTTP DELETE /api/v1/users/f9903bea-2034-4c4b-a3dc-3246b15ff36f responded 200 in 589ms 
+2026-02-10 15:23:32.701 +07:00 [INF] Registered 7 endpoints in 224 milliseconds.
+2026-02-10 15:23:33.262 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-10 15:23:33.401 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-10 15:23:33.408 +07:00 [INF] SQL (0ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-10 15:23:33.409 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-10 15:23:33.525 +07:00 [INF] SQL (3ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-10 15:23:33.585 +07:00 [INF] Listening on http://localhost:5284
+2026-02-10 15:23:36.080 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-10 15:23:36.168 +07:00 [INF] Checking permissions for roles: Admin
+2026-02-10 15:23:36.281 +07:00 [INF] SQL (37ms)
+SELECT DISTINCT p0."Name"
+FROM roles AS r
+INNER JOIN (
+    SELECT r0."RoleId", r0."PermissionId"
+    FROM role_permissions AS r0
+    WHERE r0."DeletedAt" IS NULL
+) AS r1 ON r."Id" = r1."RoleId"
+INNER JOIN (
+    SELECT p."Id", p."Name"
+    FROM permissions AS p
+    WHERE p."DeletedAt" IS NULL
+) AS p0 ON r1."PermissionId" = p0."Id"
+WHERE r."DeletedAt" IS NULL AND r."Name" = ANY (@__rolesList_0)
+2026-02-10 15:23:36.282 +07:00 [INF] Found 12 permissions: permissions.create, permissions.delete, permissions.read, permissions.update, roles.create, roles.delete, roles.read, roles.update, users.create, users.delete, users.read, users.update
+2026-02-10 15:23:36.283 +07:00 [INF] Permission check result: true
+2026-02-10 15:23:36.327 +07:00 [INF] SQL (1ms)
+SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+FROM users AS u
+WHERE u."DeletedAt" IS NULL AND u."Id" = @__id_0
+LIMIT 1
+2026-02-10 15:23:36.415 +07:00 [INF] SQL (3ms)
+UPDATE users SET "CreatedAt" = @p0, "CreatedBy" = @p1, "DeletedAt" = @p2, "DeletedBy" = @p3, "Email" = @p4, "FirstName" = @p5, "IsActive" = @p6, "LastName" = @p7, "Password" = @p8, "UpdatedAt" = @p9, "UpdatedBy" = @p10
+WHERE "Id" = @p11;
+
+2026-02-10 15:23:36.447 +07:00 [INF] HTTP DELETE /api/v1/users/f9903bea-2034-4c4b-a3dc-3246b15ff36f responded 200 in 368ms 
