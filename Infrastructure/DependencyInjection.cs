@@ -2,6 +2,7 @@ using Application.Interface;
 using FastEndpoints.Security;
 using Infrastructure.Auth;
 using Infrastructure.Persistence;
+using Infrastructure.Persistence.Query;
 using Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -46,6 +47,8 @@ public static class DependencyInjection
 
         services.AddAuthentication();
         services.AddAuthorization();
+
+        services.AddScoped(typeof(IListQueryProcessor<>), typeof(EfListQueryProcessor<>));
         return services;
     }
 }

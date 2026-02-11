@@ -5,6 +5,7 @@ using Application.Interface;
 using Application.Users.CreateUser;
 using Application.Users.DeleteUser;
 using Application.Users.GetMe;
+using Application.Users.GetUsers;
 using Application.Users.UpdateUser;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -26,6 +27,7 @@ public static class DependencyInjection
         services.AddScoped<UpdateUserHandler>();
         services.AddScoped<GetMeHandler>();
         services.AddScoped<DeleteUserHandler>();
+        services.AddScoped<GetUserHandler>();
         return services;
     }
 }
