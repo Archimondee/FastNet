@@ -2,7 +2,6 @@
 using Application.Behavior;
 using Application.Users.GetMe;
 using FastEndpoints;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Shared.Commons.Exceptions;
 using Shared.Commons.Response;

@@ -1,0 +1,1094 @@
+2026-02-11 15:05:20.333 +07:00 [INF] Registered 8 endpoints in 283 milliseconds.
+2026-02-11 15:05:21.015 +07:00 [INF] SQL (15ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:05:21.194 +07:00 [INF] SQL (8ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 15:05:21.205 +07:00 [INF] SQL (2ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 15:05:21.211 +07:00 [INF] SQL (2ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:05:21.378 +07:00 [INF] SQL (3ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 15:05:21.486 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 15:05:33.030 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 15:05:33.232 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 202ms 
+2026-02-11 15:05:33.947 +07:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 62ms 
+2026-02-11 15:05:34.069 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 3ms 
+2026-02-11 15:05:34.562 +07:00 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 10ms 
+2026-02-11 15:05:34.804 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 557ms 
+2026-02-11 15:05:34.805 +07:00 [WRN] Slow HTTP GET /swagger/v1/swagger.json responded 200 in 557ms 
+2026-02-11 15:05:57.165 +07:00 [INF] SQL (58ms)
+SELECT count(*)::int
+FROM users AS u
+WHERE u."DeletedAt" IS NULL
+2026-02-11 15:05:57.196 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-11 15:05:57.197 +07:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2026-02-11 15:05:57.258 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-11 15:05:57.301 +07:00 [INF] SQL (18ms)
+SELECT u1."Id", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Email", u1."FirstName", u1."IsActive", u1."LastName", u1."Password", u1."UpdatedAt", u1."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL
+    LIMIT @__p_1 OFFSET @__p_0
+) AS u1
+LEFT JOIN (
+    SELECT u0."UserId", u0."RoleId", u0."AssignedAt", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."DeletedBy", u0."Id", u0."UpdatedAt", u0."UpdatedBy", r0."Id" AS "Id0", r0."CreatedAt" AS "CreatedAt0", r0."CreatedBy" AS "CreatedBy0", r0."DeletedAt" AS "DeletedAt0", r0."DeletedBy" AS "DeletedBy0", r0."Description", r0."Name", r0."UpdatedAt" AS "UpdatedAt0", r0."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    LEFT JOIN (
+        SELECT r1."RoleId", r1."PermissionId", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Id", r1."UpdatedAt", r1."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r1
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r1."PermissionId" = p0."Id"
+        WHERE r1."DeletedAt" IS NULL
+    ) AS s ON r0."Id" = s."RoleId"
+    WHERE u0."DeletedAt" IS NULL
+) AS s0 ON u1."Id" = s0."UserId"
+ORDER BY u1."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-11 15:05:57.342 +07:00 [INF] HTTP GET /api/v1/users responded 200 in 569ms 
+2026-02-11 15:05:57.343 +07:00 [WRN] Slow HTTP GET /api/v1/users responded 200 in 569ms 
+2026-02-11 15:07:38.533 +07:00 [INF] SQL (18ms)
+SELECT count(*)::int
+FROM users AS u
+WHERE u."DeletedAt" IS NULL
+2026-02-11 15:07:38.540 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-11 15:07:38.566 +07:00 [INF] SQL (9ms)
+SELECT u1."Id", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Email", u1."FirstName", u1."IsActive", u1."LastName", u1."Password", u1."UpdatedAt", u1."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL
+    ORDER BY u."Email"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS u1
+LEFT JOIN (
+    SELECT u0."UserId", u0."RoleId", u0."AssignedAt", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."DeletedBy", u0."Id", u0."UpdatedAt", u0."UpdatedBy", r0."Id" AS "Id0", r0."CreatedAt" AS "CreatedAt0", r0."CreatedBy" AS "CreatedBy0", r0."DeletedAt" AS "DeletedAt0", r0."DeletedBy" AS "DeletedBy0", r0."Description", r0."Name", r0."UpdatedAt" AS "UpdatedAt0", r0."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    LEFT JOIN (
+        SELECT r1."RoleId", r1."PermissionId", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Id", r1."UpdatedAt", r1."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r1
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r1."PermissionId" = p0."Id"
+        WHERE r1."DeletedAt" IS NULL
+    ) AS s ON r0."Id" = s."RoleId"
+    WHERE u0."DeletedAt" IS NULL
+) AS s0 ON u1."Id" = s0."UserId"
+ORDER BY u1."Email", u1."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-11 15:07:38.579 +07:00 [INF] HTTP GET /api/v1/users responded 200 in 341ms 
+2026-02-11 15:08:08.655 +07:00 [ERR] Unhandled system exception | /api/v1/users | bb0cc870-0d84-44de-8e51-9c236f16aaf8
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildMemberAccess(Expression root, String[] members, Type& finalType) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 58
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 26
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 18
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:08:18.969 +07:00 [ERR] Unhandled system exception | /api/v1/users | 9361dec3-967c-4166-b7ca-2532f409d3e4
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildMemberAccess(Expression root, String[] members, Type& finalType) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 58
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 26
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 18
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:08:50.869 +07:00 [ERR] Unhandled system exception | /api/v1/users | 7add0fba-4a79-4ec1-ba3d-c2951fcc4d71
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildMemberAccess(Expression root, String[] members, Type& finalType) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 58
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 26
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 18
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:08:54.769 +07:00 [ERR] Unhandled system exception | /api/v1/users | 1987c9aa-6fce-4716-b1ce-06eb0e95d1bf
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildMemberAccess(Expression root, String[] members, Type& finalType) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 58
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 26
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 18
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:09:39.787 +07:00 [INF] SQL (21ms)
+SELECT count(*)::int
+FROM users AS u
+WHERE u."DeletedAt" IS NULL AND NOT (u."IsActive")
+2026-02-11 15:09:39.794 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-11 15:09:39.810 +07:00 [INF] SQL (4ms)
+SELECT u1."Id", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Email", u1."FirstName", u1."IsActive", u1."LastName", u1."Password", u1."UpdatedAt", u1."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND NOT (u."IsActive")
+    ORDER BY u."Email"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS u1
+LEFT JOIN (
+    SELECT u0."UserId", u0."RoleId", u0."AssignedAt", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."DeletedBy", u0."Id", u0."UpdatedAt", u0."UpdatedBy", r0."Id" AS "Id0", r0."CreatedAt" AS "CreatedAt0", r0."CreatedBy" AS "CreatedBy0", r0."DeletedAt" AS "DeletedAt0", r0."DeletedBy" AS "DeletedBy0", r0."Description", r0."Name", r0."UpdatedAt" AS "UpdatedAt0", r0."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    LEFT JOIN (
+        SELECT r1."RoleId", r1."PermissionId", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Id", r1."UpdatedAt", r1."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r1
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r1."PermissionId" = p0."Id"
+        WHERE r1."DeletedAt" IS NULL
+    ) AS s ON r0."Id" = s."RoleId"
+    WHERE u0."DeletedAt" IS NULL
+) AS s0 ON u1."Id" = s0."UserId"
+ORDER BY u1."Email", u1."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-11 15:09:39.824 +07:00 [INF] HTTP GET /api/v1/users responded 200 in 168ms 
+2026-02-11 15:09:45.889 +07:00 [INF] SQL (0ms)
+SELECT count(*)::int
+FROM users AS u
+WHERE u."DeletedAt" IS NULL AND u."IsActive"
+2026-02-11 15:09:45.904 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-11 15:09:45.918 +07:00 [INF] SQL (3ms)
+SELECT u1."Id", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Email", u1."FirstName", u1."IsActive", u1."LastName", u1."Password", u1."UpdatedAt", u1."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND u."IsActive"
+    ORDER BY u."Email"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS u1
+LEFT JOIN (
+    SELECT u0."UserId", u0."RoleId", u0."AssignedAt", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."DeletedBy", u0."Id", u0."UpdatedAt", u0."UpdatedBy", r0."Id" AS "Id0", r0."CreatedAt" AS "CreatedAt0", r0."CreatedBy" AS "CreatedBy0", r0."DeletedAt" AS "DeletedAt0", r0."DeletedBy" AS "DeletedBy0", r0."Description", r0."Name", r0."UpdatedAt" AS "UpdatedAt0", r0."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    LEFT JOIN (
+        SELECT r1."RoleId", r1."PermissionId", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Id", r1."UpdatedAt", r1."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r1
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r1."PermissionId" = p0."Id"
+        WHERE r1."DeletedAt" IS NULL
+    ) AS s ON r0."Id" = s."RoleId"
+    WHERE u0."DeletedAt" IS NULL
+) AS s0 ON u1."Id" = s0."UserId"
+ORDER BY u1."Email", u1."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-11 15:09:45.923 +07:00 [INF] HTTP GET /api/v1/users responded 200 in 43ms 
+2026-02-11 15:10:03.520 +07:00 [ERR] Unhandled system exception | /api/v1/users | ffa67043-c207-4086-bb9e-ebefcf4a68cc
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildMemberAccess(Expression root, String[] members, Type& finalType) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 58
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildMemberAccess(Expression root, String[] members, Type& finalType) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 65
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 26
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 18
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:11:19.136 +07:00 [ERR] Unhandled system exception | /api/v1/users | 52f6f2a6-5f31-4cc6-a159-519ba4e67ac2
+System.InvalidOperationException: No generic method 'Any' on type 'System.Linq.Enumerable' is compatible with the supplied type arguments and arguments. No type arguments should be provided if the method is non-generic. 
+   at System.Linq.Expressions.Expression.FindMethod(Type type, String methodName, Type[] typeArgs, Expression[] args, BindingFlags flags)
+   at System.Linq.Expressions.Expression.Call(Type type, String methodName, Type[] typeArguments, Expression[] arguments)
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildMemberAccess(Expression root, String[] members, Type& finalType) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 72
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 26
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 18
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:12:07.139 +07:00 [ERR] Unhandled system exception | /api/v1/users | 0d5a9c1e-7afa-4fb2-bb5b-a7312af8066f
+System.InvalidOperationException: No generic method 'Any' on type 'System.Linq.Enumerable' is compatible with the supplied type arguments and arguments. No type arguments should be provided if the method is non-generic. 
+   at System.Linq.Expressions.Expression.FindMethod(Type type, String methodName, Type[] typeArgs, Expression[] args, BindingFlags flags)
+   at System.Linq.Expressions.Expression.Call(Type type, String methodName, Type[] typeArguments, Expression[] arguments)
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildMemberAccess(Expression root, String[] members, Type& finalType) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 72
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 26
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 18
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:12:22.071 +07:00 [ERR] Unhandled system exception | /api/v1/users | 494caafd-aae1-4ac6-8f49-a1e29623ea0d
+System.InvalidOperationException: No generic method 'Any' on type 'System.Linq.Enumerable' is compatible with the supplied type arguments and arguments. No type arguments should be provided if the method is non-generic. 
+   at System.Linq.Expressions.Expression.FindMethod(Type type, String methodName, Type[] typeArgs, Expression[] args, BindingFlags flags)
+   at System.Linq.Expressions.Expression.Call(Type type, String methodName, Type[] typeArguments, Expression[] arguments)
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildMemberAccess(Expression root, String[] members, Type& finalType) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 72
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 26
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 18
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:13:17.808 +07:00 [INF] SQL (16ms)
+SELECT count(*)::int
+FROM users AS u
+WHERE u."DeletedAt" IS NULL
+2026-02-11 15:13:17.819 +07:00 [INF] SQL (6ms)
+SELECT u1."Id", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Email", u1."FirstName", u1."IsActive", u1."LastName", u1."Password", u1."UpdatedAt", u1."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL
+    ORDER BY u."Email"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS u1
+LEFT JOIN (
+    SELECT u0."UserId", u0."RoleId", u0."AssignedAt", u0."CreatedAt", u0."CreatedBy", u0."DeletedAt", u0."DeletedBy", u0."Id", u0."UpdatedAt", u0."UpdatedBy", r0."Id" AS "Id0", r0."CreatedAt" AS "CreatedAt0", r0."CreatedBy" AS "CreatedBy0", r0."DeletedAt" AS "DeletedAt0", r0."DeletedBy" AS "DeletedBy0", r0."Description", r0."Name", r0."UpdatedAt" AS "UpdatedAt0", r0."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."CreatedAt", r."CreatedBy", r."DeletedAt", r."DeletedBy", r."Description", r."Name", r."UpdatedAt", r."UpdatedBy"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    LEFT JOIN (
+        SELECT r1."RoleId", r1."PermissionId", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Id", r1."UpdatedAt", r1."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r1
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r1."PermissionId" = p0."Id"
+        WHERE r1."DeletedAt" IS NULL
+    ) AS s ON r0."Id" = s."RoleId"
+    WHERE u0."DeletedAt" IS NULL
+) AS s0 ON u1."Id" = s0."UserId"
+ORDER BY u1."Email", u1."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-11 15:13:17.827 +07:00 [INF] HTTP GET /api/v1/users responded 200 in 199ms 
+2026-02-11 15:15:18.067 +07:00 [ERR] Unhandled system exception | /api/v1/users | 19dd5a25-400c-47fd-a1e1-93561078dded
+System.ArgumentException: Invalid filter: userRoles.role.name
+   at Infrastructure.Persistence.Query.FilterParser.Parse(String raw) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FilterParser.cs:line 29
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 14
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 18
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:15:30.165 +07:00 [ERR] Unhandled system exception | /api/v1/users | b8738c1a-0282-41cf-932b-32589a7bdf3f
+System.InvalidOperationException: No generic method 'Any' on type 'System.Linq.Enumerable' is compatible with the supplied type arguments and arguments. No type arguments should be provided if the method is non-generic. 
+   at System.Linq.Expressions.Expression.FindMethod(Type type, String methodName, Type[] typeArgs, Expression[] args, BindingFlags flags)
+   at System.Linq.Expressions.Expression.Call(Type type, String methodName, Type[] typeArguments, Expression[] arguments)
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildMemberAccess(Expression root, String[] members, Type& finalType) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 72
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 26
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 18
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:17:36.628 +07:00 [INF] Registered 8 endpoints in 218 milliseconds.
+2026-02-11 15:17:37.178 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:17:37.321 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 15:17:37.328 +07:00 [INF] SQL (0ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 15:17:37.329 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:17:37.444 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 15:17:37.503 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 15:17:42.045 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 15:17:42.195 +07:00 [ERR] Unhandled system exception | /api/v1/users | d2e05378-dcf8-4d0d-8b04-7581b194d57c
+System.InvalidOperationException: No generic method 'Any' on type 'System.Linq.Queryable' is compatible with the supplied type arguments and arguments. No type arguments should be provided if the method is non-generic. 
+   at System.Linq.Expressions.Expression.FindMethod(Type type, String methodName, Type[] typeArgs, Expression[] args, BindingFlags flags)
+   at System.Linq.Expressions.Expression.Call(Type type, String methodName, Type[] typeArguments, Expression[] arguments)
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildMemberAccess(Expression root, String[] members, Type& finalType) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 72
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 26
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 18
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:21:17.188 +07:00 [INF] Registered 8 endpoints in 228 milliseconds.
+2026-02-11 15:21:17.725 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:21:17.860 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 15:21:17.867 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 15:21:17.869 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:21:17.988 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 15:21:18.044 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 15:21:22.817 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 15:21:22.948 +07:00 [ERR] Unhandled system exception | /api/v1/users | 17369277-1ec9-48cf-ba45-836285090bff
+System.ArgumentException: Expression of type 'System.Func`2[Domain.Entities.UserRole,System.String]' cannot be used for parameter of type 'System.Func`2[Domain.Entities.UserRole,System.Boolean]' of method 'Boolean Any[UserRole](System.Collections.Generic.IEnumerable`1[Domain.Entities.UserRole], System.Func`2[Domain.Entities.UserRole,System.Boolean])' (Parameter 'arg1')
+   at System.Dynamic.Utils.ExpressionUtils.ValidateOneArgument(MethodBase method, ExpressionType nodeKind, Expression arguments, ParameterInfo pi, String methodParamName, String argumentParamName, Int32 index)
+   at System.Linq.Expressions.Expression.Call(MethodInfo method, Expression arg0, Expression arg1)
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildMemberAccess(Expression root, String[] members, Type& finalType) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 123
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 27
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 18
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:23:28.086 +07:00 [INF] Registered 8 endpoints in 243 milliseconds.
+2026-02-11 15:23:28.599 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:23:28.739 +07:00 [INF] SQL (3ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 15:23:28.748 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 15:23:28.749 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:23:28.865 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 15:23:28.925 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 15:23:32.539 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 15:23:32.771 +07:00 [INF] SQL (9ms)
+SELECT count(*)::int
+FROM users AS u
+WHERE u."DeletedAt" IS NULL AND EXISTS (
+    SELECT 1
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."Name"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin')
+2026-02-11 15:23:32.821 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-11 15:23:32.850 +07:00 [INF] SQL (8ms)
+SELECT u2."Id", u2."CreatedAt", u2."CreatedBy", u2."DeletedAt", u2."DeletedBy", u2."Email", u2."FirstName", u2."IsActive", u2."LastName", u2."Password", u2."UpdatedAt", u2."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND EXISTS (
+        SELECT 1
+        FROM user_roles AS u0
+        INNER JOIN (
+            SELECT r."Id", r."Name"
+            FROM roles AS r
+            WHERE r."DeletedAt" IS NULL
+        ) AS r0 ON u0."RoleId" = r0."Id"
+        WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin')
+    ORDER BY u."Email"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS u2
+LEFT JOIN (
+    SELECT u1."UserId", u1."RoleId", u1."AssignedAt", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Id", u1."UpdatedAt", u1."UpdatedBy", r2."Id" AS "Id0", r2."CreatedAt" AS "CreatedAt0", r2."CreatedBy" AS "CreatedBy0", r2."DeletedAt" AS "DeletedAt0", r2."DeletedBy" AS "DeletedBy0", r2."Description", r2."Name", r2."UpdatedAt" AS "UpdatedAt0", r2."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u1
+    INNER JOIN (
+        SELECT r1."Id", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Description", r1."Name", r1."UpdatedAt", r1."UpdatedBy"
+        FROM roles AS r1
+        WHERE r1."DeletedAt" IS NULL
+    ) AS r2 ON u1."RoleId" = r2."Id"
+    LEFT JOIN (
+        SELECT r3."RoleId", r3."PermissionId", r3."CreatedAt", r3."CreatedBy", r3."DeletedAt", r3."DeletedBy", r3."Id", r3."UpdatedAt", r3."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r3
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r3."PermissionId" = p0."Id"
+        WHERE r3."DeletedAt" IS NULL
+    ) AS s ON r2."Id" = s."RoleId"
+    WHERE u1."DeletedAt" IS NULL
+) AS s0 ON u2."Id" = s0."UserId"
+ORDER BY u2."Email", u2."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-11 15:23:32.900 +07:00 [INF] HTTP GET /api/v1/users responded 200 in 363ms 
+2026-02-11 15:24:44.213 +07:00 [ERR] Unhandled system exception | /api/v1/users | 27cad4f5-4a25-4fe2-af2a-698c1b1e10e6
+System.InvalidOperationException: Collection filter expected.
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 109
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 18
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:24:53.381 +07:00 [ERR] Unhandled system exception | /api/v1/users | 13204eb7-49a1-4c19-9265-efe1d9787922
+System.InvalidOperationException: Collection filter expected.
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 109
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 18
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:25:31.227 +07:00 [ERR] Unhandled system exception | /api/v1/users | 8c8c0d46-cd5d-4c0d-acee-3f306d0da5b7
+System.InvalidOperationException: Collection filter expected.
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 109
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 18
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:26:07.354 +07:00 [ERR] Unhandled system exception | /api/v1/users | 0194c4a9-3792-44dc-b3aa-5ca826cc0675
+System.InvalidOperationException: Collection filter expected.
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 109
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 18
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:28:15.730 +07:00 [INF] Registered 8 endpoints in 279 milliseconds.
+2026-02-11 15:28:16.283 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:28:16.423 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 15:28:16.431 +07:00 [INF] SQL (2ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 15:28:16.433 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:28:16.544 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 15:28:16.606 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 15:28:21.156 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 15:28:21.342 +07:00 [INF] SQL (10ms)
+SELECT count(*)::int
+FROM users AS u
+WHERE u."DeletedAt" IS NULL AND EXISTS (
+    SELECT 1
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."Name"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin') AND u."Email" LIKE '%admin%'
+2026-02-11 15:28:21.386 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-11 15:28:21.415 +07:00 [INF] SQL (7ms)
+SELECT u2."Id", u2."CreatedAt", u2."CreatedBy", u2."DeletedAt", u2."DeletedBy", u2."Email", u2."FirstName", u2."IsActive", u2."LastName", u2."Password", u2."UpdatedAt", u2."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND EXISTS (
+        SELECT 1
+        FROM user_roles AS u0
+        INNER JOIN (
+            SELECT r."Id", r."Name"
+            FROM roles AS r
+            WHERE r."DeletedAt" IS NULL
+        ) AS r0 ON u0."RoleId" = r0."Id"
+        WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin') AND u."Email" LIKE '%admin%'
+    ORDER BY u."Email"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS u2
+LEFT JOIN (
+    SELECT u1."UserId", u1."RoleId", u1."AssignedAt", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Id", u1."UpdatedAt", u1."UpdatedBy", r2."Id" AS "Id0", r2."CreatedAt" AS "CreatedAt0", r2."CreatedBy" AS "CreatedBy0", r2."DeletedAt" AS "DeletedAt0", r2."DeletedBy" AS "DeletedBy0", r2."Description", r2."Name", r2."UpdatedAt" AS "UpdatedAt0", r2."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u1
+    INNER JOIN (
+        SELECT r1."Id", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Description", r1."Name", r1."UpdatedAt", r1."UpdatedBy"
+        FROM roles AS r1
+        WHERE r1."DeletedAt" IS NULL
+    ) AS r2 ON u1."RoleId" = r2."Id"
+    LEFT JOIN (
+        SELECT r3."RoleId", r3."PermissionId", r3."CreatedAt", r3."CreatedBy", r3."DeletedAt", r3."DeletedBy", r3."Id", r3."UpdatedAt", r3."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r3
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r3."PermissionId" = p0."Id"
+        WHERE r3."DeletedAt" IS NULL
+    ) AS s ON r2."Id" = s."RoleId"
+    WHERE u1."DeletedAt" IS NULL
+) AS s0 ON u2."Id" = s0."UserId"
+ORDER BY u2."Email", u2."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-11 15:28:21.460 +07:00 [INF] HTTP GET /api/v1/users responded 200 in 305ms 
+2026-02-11 15:28:36.487 +07:00 [INF] SQL (2ms)
+SELECT count(*)::int
+FROM users AS u
+WHERE u."DeletedAt" IS NULL AND EXISTS (
+    SELECT 1
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."Name"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin') AND u."Email" LIKE '%admin%' AND u."IsActive"
+2026-02-11 15:28:36.500 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-11 15:28:36.523 +07:00 [INF] SQL (3ms)
+SELECT u2."Id", u2."CreatedAt", u2."CreatedBy", u2."DeletedAt", u2."DeletedBy", u2."Email", u2."FirstName", u2."IsActive", u2."LastName", u2."Password", u2."UpdatedAt", u2."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND EXISTS (
+        SELECT 1
+        FROM user_roles AS u0
+        INNER JOIN (
+            SELECT r."Id", r."Name"
+            FROM roles AS r
+            WHERE r."DeletedAt" IS NULL
+        ) AS r0 ON u0."RoleId" = r0."Id"
+        WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin') AND u."Email" LIKE '%admin%' AND u."IsActive"
+    ORDER BY u."Email"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS u2
+LEFT JOIN (
+    SELECT u1."UserId", u1."RoleId", u1."AssignedAt", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Id", u1."UpdatedAt", u1."UpdatedBy", r2."Id" AS "Id0", r2."CreatedAt" AS "CreatedAt0", r2."CreatedBy" AS "CreatedBy0", r2."DeletedAt" AS "DeletedAt0", r2."DeletedBy" AS "DeletedBy0", r2."Description", r2."Name", r2."UpdatedAt" AS "UpdatedAt0", r2."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u1
+    INNER JOIN (
+        SELECT r1."Id", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Description", r1."Name", r1."UpdatedAt", r1."UpdatedBy"
+        FROM roles AS r1
+        WHERE r1."DeletedAt" IS NULL
+    ) AS r2 ON u1."RoleId" = r2."Id"
+    LEFT JOIN (
+        SELECT r3."RoleId", r3."PermissionId", r3."CreatedAt", r3."CreatedBy", r3."DeletedAt", r3."DeletedBy", r3."Id", r3."UpdatedAt", r3."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r3
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r3."PermissionId" = p0."Id"
+        WHERE r3."DeletedAt" IS NULL
+    ) AS s ON r2."Id" = s."RoleId"
+    WHERE u1."DeletedAt" IS NULL
+) AS s0 ON u2."Id" = s0."UserId"
+ORDER BY u2."Email", u2."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-11 15:28:36.530 +07:00 [INF] HTTP GET /api/v1/users responded 200 in 96ms 
+2026-02-11 15:28:42.609 +07:00 [INF] SQL (1ms)
+SELECT count(*)::int
+FROM users AS u
+WHERE u."DeletedAt" IS NULL AND EXISTS (
+    SELECT 1
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."Name"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin') AND u."Email" LIKE '%admin%' AND NOT (u."IsActive")
+2026-02-11 15:28:42.613 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-11 15:28:42.627 +07:00 [INF] SQL (2ms)
+SELECT u2."Id", u2."CreatedAt", u2."CreatedBy", u2."DeletedAt", u2."DeletedBy", u2."Email", u2."FirstName", u2."IsActive", u2."LastName", u2."Password", u2."UpdatedAt", u2."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND EXISTS (
+        SELECT 1
+        FROM user_roles AS u0
+        INNER JOIN (
+            SELECT r."Id", r."Name"
+            FROM roles AS r
+            WHERE r."DeletedAt" IS NULL
+        ) AS r0 ON u0."RoleId" = r0."Id"
+        WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin') AND u."Email" LIKE '%admin%' AND NOT (u."IsActive")
+    ORDER BY u."Email"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS u2
+LEFT JOIN (
+    SELECT u1."UserId", u1."RoleId", u1."AssignedAt", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Id", u1."UpdatedAt", u1."UpdatedBy", r2."Id" AS "Id0", r2."CreatedAt" AS "CreatedAt0", r2."CreatedBy" AS "CreatedBy0", r2."DeletedAt" AS "DeletedAt0", r2."DeletedBy" AS "DeletedBy0", r2."Description", r2."Name", r2."UpdatedAt" AS "UpdatedAt0", r2."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u1
+    INNER JOIN (
+        SELECT r1."Id", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Description", r1."Name", r1."UpdatedAt", r1."UpdatedBy"
+        FROM roles AS r1
+        WHERE r1."DeletedAt" IS NULL
+    ) AS r2 ON u1."RoleId" = r2."Id"
+    LEFT JOIN (
+        SELECT r3."RoleId", r3."PermissionId", r3."CreatedAt", r3."CreatedBy", r3."DeletedAt", r3."DeletedBy", r3."Id", r3."UpdatedAt", r3."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r3
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r3."PermissionId" = p0."Id"
+        WHERE r3."DeletedAt" IS NULL
+    ) AS s ON r2."Id" = s."RoleId"
+    WHERE u1."DeletedAt" IS NULL
+) AS s0 ON u2."Id" = s0."UserId"
+ORDER BY u2."Email", u2."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-11 15:28:42.628 +07:00 [INF] HTTP GET /api/v1/users responded 200 in 29ms 
+2026-02-11 15:28:48.184 +07:00 [INF] SQL (2ms)
+SELECT count(*)::int
+FROM users AS u
+WHERE u."DeletedAt" IS NULL AND EXISTS (
+    SELECT 1
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."Name"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin') AND u."Email" LIKE '%admin%' AND u."IsActive"
+2026-02-11 15:28:48.189 +07:00 [INF] SQL (2ms)
+SELECT u2."Id", u2."CreatedAt", u2."CreatedBy", u2."DeletedAt", u2."DeletedBy", u2."Email", u2."FirstName", u2."IsActive", u2."LastName", u2."Password", u2."UpdatedAt", u2."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND EXISTS (
+        SELECT 1
+        FROM user_roles AS u0
+        INNER JOIN (
+            SELECT r."Id", r."Name"
+            FROM roles AS r
+            WHERE r."DeletedAt" IS NULL
+        ) AS r0 ON u0."RoleId" = r0."Id"
+        WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin') AND u."Email" LIKE '%admin%' AND u."IsActive"
+    ORDER BY u."Email"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS u2
+LEFT JOIN (
+    SELECT u1."UserId", u1."RoleId", u1."AssignedAt", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Id", u1."UpdatedAt", u1."UpdatedBy", r2."Id" AS "Id0", r2."CreatedAt" AS "CreatedAt0", r2."CreatedBy" AS "CreatedBy0", r2."DeletedAt" AS "DeletedAt0", r2."DeletedBy" AS "DeletedBy0", r2."Description", r2."Name", r2."UpdatedAt" AS "UpdatedAt0", r2."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u1
+    INNER JOIN (
+        SELECT r1."Id", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Description", r1."Name", r1."UpdatedAt", r1."UpdatedBy"
+        FROM roles AS r1
+        WHERE r1."DeletedAt" IS NULL
+    ) AS r2 ON u1."RoleId" = r2."Id"
+    LEFT JOIN (
+        SELECT r3."RoleId", r3."PermissionId", r3."CreatedAt", r3."CreatedBy", r3."DeletedAt", r3."DeletedBy", r3."Id", r3."UpdatedAt", r3."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r3
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r3."PermissionId" = p0."Id"
+        WHERE r3."DeletedAt" IS NULL
+    ) AS s ON r2."Id" = s."RoleId"
+    WHERE u1."DeletedAt" IS NULL
+) AS s0 ON u2."Id" = s0."UserId"
+ORDER BY u2."Email", u2."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-11 15:28:48.192 +07:00 [INF] HTTP GET /api/v1/users responded 200 in 25ms 
+2026-02-11 15:40:01.222 +07:00 [INF] Registered 8 endpoints in 251 milliseconds.
+2026-02-11 15:40:01.796 +07:00 [INF] SQL (13ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:40:01.927 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 15:40:01.934 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 15:40:01.936 +07:00 [INF] SQL (1ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:40:02.049 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 15:40:02.107 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 15:40:04.077 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 15:40:04.252 +07:00 [INF] SQL (8ms)
+SELECT count(*)::int
+FROM users AS u
+WHERE u."DeletedAt" IS NULL AND EXISTS (
+    SELECT 1
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."Name"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin') AND u."Email" LIKE '%admin%' AND u."IsActive"
+2026-02-11 15:40:04.298 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-11 15:40:04.331 +07:00 [INF] SQL (7ms)
+SELECT u2."Id", u2."CreatedAt", u2."CreatedBy", u2."DeletedAt", u2."DeletedBy", u2."Email", u2."FirstName", u2."IsActive", u2."LastName", u2."Password", u2."UpdatedAt", u2."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND EXISTS (
+        SELECT 1
+        FROM user_roles AS u0
+        INNER JOIN (
+            SELECT r."Id", r."Name"
+            FROM roles AS r
+            WHERE r."DeletedAt" IS NULL
+        ) AS r0 ON u0."RoleId" = r0."Id"
+        WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin') AND u."Email" LIKE '%admin%' AND u."IsActive"
+    ORDER BY u."Email"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS u2
+LEFT JOIN (
+    SELECT u1."UserId", u1."RoleId", u1."AssignedAt", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Id", u1."UpdatedAt", u1."UpdatedBy", r2."Id" AS "Id0", r2."CreatedAt" AS "CreatedAt0", r2."CreatedBy" AS "CreatedBy0", r2."DeletedAt" AS "DeletedAt0", r2."DeletedBy" AS "DeletedBy0", r2."Description", r2."Name", r2."UpdatedAt" AS "UpdatedAt0", r2."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u1
+    INNER JOIN (
+        SELECT r1."Id", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Description", r1."Name", r1."UpdatedAt", r1."UpdatedBy"
+        FROM roles AS r1
+        WHERE r1."DeletedAt" IS NULL
+    ) AS r2 ON u1."RoleId" = r2."Id"
+    LEFT JOIN (
+        SELECT r3."RoleId", r3."PermissionId", r3."CreatedAt", r3."CreatedBy", r3."DeletedAt", r3."DeletedBy", r3."Id", r3."UpdatedAt", r3."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r3
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r3."PermissionId" = p0."Id"
+        WHERE r3."DeletedAt" IS NULL
+    ) AS s ON r2."Id" = s."RoleId"
+    WHERE u1."DeletedAt" IS NULL
+) AS s0 ON u2."Id" = s0."UserId"
+ORDER BY u2."Email", u2."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-11 15:40:04.385 +07:00 [INF] HTTP GET /api/v1/users responded 200 in 308ms 
