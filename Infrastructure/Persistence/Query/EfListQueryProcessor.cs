@@ -1,5 +1,4 @@
-﻿
-using Application.Common.Listing;
+﻿using Application.Common.Listing;
 using Application.Interface;
 using Microsoft.EntityFrameworkCore;
 

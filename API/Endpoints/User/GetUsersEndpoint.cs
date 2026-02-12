@@ -2,6 +2,7 @@
 using Application.Common.Listing;
 using Application.Users.GetUsers;
 using FastEndpoints;
+using Shared.Commons.Documentation;
 using Shared.Commons.Response;
 
 namespace API.Endpoints.User;
@@ -27,7 +28,7 @@ public class GetUsersEndpoint : Endpoint<ListQuery, ApiResponse<PagedResult<GetU
     Summary(s =>
     {
       s.Summary = "Get users";
-      s.Description = "Get users";
+      s.Description = SwaggerDocs.ListFilteringDescription;
       s.Response<List<GetUserResponse>>(200, "Users successfully retrieved");
     });
   }

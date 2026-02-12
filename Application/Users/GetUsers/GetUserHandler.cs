@@ -27,13 +27,13 @@ public class GetUserHandler
       .ThenInclude(rp => rp.Permission);
 
     var result = await _processor.ExecuteAsync(query, req, ct);
-    var mapped = result.Items
+    var mapped = result.Data
       .Select(Map)
       .ToList();
 
     return new PagedResult<GetUserResponse>(
       mapped,
-      result.TotalCount,
+      result.TotalItems,
       result.Page,
       result.PageSize);
   }

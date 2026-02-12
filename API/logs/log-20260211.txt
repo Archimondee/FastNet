@@ -1092,3 +1092,697 @@ LEFT JOIN (
 ) AS s0 ON u2."Id" = s0."UserId"
 ORDER BY u2."Email", u2."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
 2026-02-11 15:40:04.385 +07:00 [INF] HTTP GET /api/v1/users responded 200 in 308ms 
+2026-02-11 15:43:48.735 +07:00 [INF] Registered 8 endpoints in 389 milliseconds.
+2026-02-11 15:43:49.361 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:43:49.485 +07:00 [INF] SQL (3ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 15:43:49.492 +07:00 [INF] SQL (0ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 15:43:49.494 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:43:49.612 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 15:43:49.679 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 15:45:52.201 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 15:45:52.689 +07:00 [INF] SQL (35ms)
+SELECT count(*)::int
+FROM users AS u
+WHERE u."DeletedAt" IS NULL AND EXISTS (
+    SELECT 1
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."Name"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin') AND u."Email" LIKE '%admin%' AND u."IsActive"
+2026-02-11 15:45:52.734 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-11 15:45:52.763 +07:00 [INF] SQL (9ms)
+SELECT u2."Id", u2."CreatedAt", u2."CreatedBy", u2."DeletedAt", u2."DeletedBy", u2."Email", u2."FirstName", u2."IsActive", u2."LastName", u2."Password", u2."UpdatedAt", u2."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND EXISTS (
+        SELECT 1
+        FROM user_roles AS u0
+        INNER JOIN (
+            SELECT r."Id", r."Name"
+            FROM roles AS r
+            WHERE r."DeletedAt" IS NULL
+        ) AS r0 ON u0."RoleId" = r0."Id"
+        WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin') AND u."Email" LIKE '%admin%' AND u."IsActive"
+    ORDER BY u."Email"
+    LIMIT @__p_0 OFFSET @__p_0
+) AS u2
+LEFT JOIN (
+    SELECT u1."UserId", u1."RoleId", u1."AssignedAt", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Id", u1."UpdatedAt", u1."UpdatedBy", r2."Id" AS "Id0", r2."CreatedAt" AS "CreatedAt0", r2."CreatedBy" AS "CreatedBy0", r2."DeletedAt" AS "DeletedAt0", r2."DeletedBy" AS "DeletedBy0", r2."Description", r2."Name", r2."UpdatedAt" AS "UpdatedAt0", r2."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u1
+    INNER JOIN (
+        SELECT r1."Id", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Description", r1."Name", r1."UpdatedAt", r1."UpdatedBy"
+        FROM roles AS r1
+        WHERE r1."DeletedAt" IS NULL
+    ) AS r2 ON u1."RoleId" = r2."Id"
+    LEFT JOIN (
+        SELECT r3."RoleId", r3."PermissionId", r3."CreatedAt", r3."CreatedBy", r3."DeletedAt", r3."DeletedBy", r3."Id", r3."UpdatedAt", r3."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r3
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r3."PermissionId" = p0."Id"
+        WHERE r3."DeletedAt" IS NULL
+    ) AS s ON r2."Id" = s."RoleId"
+    WHERE u1."DeletedAt" IS NULL
+) AS s0 ON u2."Id" = s0."UserId"
+ORDER BY u2."Email", u2."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-11 15:45:52.797 +07:00 [INF] HTTP GET /api/v1/users responded 200 in 598ms 
+2026-02-11 15:45:52.797 +07:00 [WRN] Slow HTTP GET /api/v1/users responded 200 in 598ms 
+2026-02-11 15:48:45.936 +07:00 [INF] Registered 8 endpoints in 353 milliseconds.
+2026-02-11 15:48:46.674 +07:00 [INF] SQL (16ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:48:46.804 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 15:48:46.812 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 15:48:46.813 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:48:46.930 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 15:48:47.004 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 15:48:50.127 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 15:48:50.387 +07:00 [INF] SQL (6ms)
+SELECT count(*)::int
+FROM users AS u
+WHERE u."DeletedAt" IS NULL AND EXISTS (
+    SELECT 1
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."Name"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin') AND u."Email" LIKE '%admin%' AND u."IsActive"
+2026-02-11 15:48:50.437 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-11 15:48:50.465 +07:00 [INF] SQL (10ms)
+SELECT u2."Id", u2."CreatedAt", u2."CreatedBy", u2."DeletedAt", u2."DeletedBy", u2."Email", u2."FirstName", u2."IsActive", u2."LastName", u2."Password", u2."UpdatedAt", u2."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND EXISTS (
+        SELECT 1
+        FROM user_roles AS u0
+        INNER JOIN (
+            SELECT r."Id", r."Name"
+            FROM roles AS r
+            WHERE r."DeletedAt" IS NULL
+        ) AS r0 ON u0."RoleId" = r0."Id"
+        WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin') AND u."Email" LIKE '%admin%' AND u."IsActive"
+    ORDER BY u."Email"
+    LIMIT @__p_0 OFFSET @__p_0
+) AS u2
+LEFT JOIN (
+    SELECT u1."UserId", u1."RoleId", u1."AssignedAt", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Id", u1."UpdatedAt", u1."UpdatedBy", r2."Id" AS "Id0", r2."CreatedAt" AS "CreatedAt0", r2."CreatedBy" AS "CreatedBy0", r2."DeletedAt" AS "DeletedAt0", r2."DeletedBy" AS "DeletedBy0", r2."Description", r2."Name", r2."UpdatedAt" AS "UpdatedAt0", r2."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u1
+    INNER JOIN (
+        SELECT r1."Id", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Description", r1."Name", r1."UpdatedAt", r1."UpdatedBy"
+        FROM roles AS r1
+        WHERE r1."DeletedAt" IS NULL
+    ) AS r2 ON u1."RoleId" = r2."Id"
+    LEFT JOIN (
+        SELECT r3."RoleId", r3."PermissionId", r3."CreatedAt", r3."CreatedBy", r3."DeletedAt", r3."DeletedBy", r3."Id", r3."UpdatedAt", r3."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r3
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r3."PermissionId" = p0."Id"
+        WHERE r3."DeletedAt" IS NULL
+    ) AS s ON r2."Id" = s."RoleId"
+    WHERE u1."DeletedAt" IS NULL
+) AS s0 ON u2."Id" = s0."UserId"
+ORDER BY u2."Email", u2."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-11 15:48:50.515 +07:00 [INF] HTTP GET /api/v1/users responded 200 in 389ms 
+2026-02-11 15:49:04.372 +07:00 [INF] SQL (3ms)
+SELECT count(*)::int
+FROM users AS u
+WHERE u."DeletedAt" IS NULL AND EXISTS (
+    SELECT 1
+    FROM user_roles AS u0
+    INNER JOIN (
+        SELECT r."Id", r."Name"
+        FROM roles AS r
+        WHERE r."DeletedAt" IS NULL
+    ) AS r0 ON u0."RoleId" = r0."Id"
+    WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin') AND u."Email" LIKE '%admin%' AND u."IsActive"
+2026-02-11 15:49:04.386 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-11 15:49:04.405 +07:00 [INF] SQL (3ms)
+SELECT u2."Id", u2."CreatedAt", u2."CreatedBy", u2."DeletedAt", u2."DeletedBy", u2."Email", u2."FirstName", u2."IsActive", u2."LastName", u2."Password", u2."UpdatedAt", u2."UpdatedBy", s0."UserId", s0."RoleId", s0."AssignedAt", s0."CreatedAt", s0."CreatedBy", s0."DeletedAt", s0."DeletedBy", s0."Id", s0."UpdatedAt", s0."UpdatedBy", s0."Id0", s0."CreatedAt0", s0."CreatedBy0", s0."DeletedAt0", s0."DeletedBy0", s0."Description", s0."Name", s0."UpdatedAt0", s0."UpdatedBy0", s0."RoleId0", s0."PermissionId", s0."CreatedAt1", s0."CreatedBy1", s0."DeletedAt1", s0."DeletedBy1", s0."Id1", s0."UpdatedAt1", s0."UpdatedBy1", s0."Id00", s0."CreatedAt00", s0."CreatedBy00", s0."DeletedAt00", s0."DeletedBy00", s0."Description0", s0."Name0", s0."UpdatedAt00", s0."UpdatedBy00"
+FROM (
+    SELECT u."Id", u."CreatedAt", u."CreatedBy", u."DeletedAt", u."DeletedBy", u."Email", u."FirstName", u."IsActive", u."LastName", u."Password", u."UpdatedAt", u."UpdatedBy"
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL AND EXISTS (
+        SELECT 1
+        FROM user_roles AS u0
+        INNER JOIN (
+            SELECT r."Id", r."Name"
+            FROM roles AS r
+            WHERE r."DeletedAt" IS NULL
+        ) AS r0 ON u0."RoleId" = r0."Id"
+        WHERE u0."DeletedAt" IS NULL AND u."Id" = u0."UserId" AND r0."Name" = 'Admin') AND u."Email" LIKE '%admin%' AND u."IsActive"
+    ORDER BY u."Email"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS u2
+LEFT JOIN (
+    SELECT u1."UserId", u1."RoleId", u1."AssignedAt", u1."CreatedAt", u1."CreatedBy", u1."DeletedAt", u1."DeletedBy", u1."Id", u1."UpdatedAt", u1."UpdatedBy", r2."Id" AS "Id0", r2."CreatedAt" AS "CreatedAt0", r2."CreatedBy" AS "CreatedBy0", r2."DeletedAt" AS "DeletedAt0", r2."DeletedBy" AS "DeletedBy0", r2."Description", r2."Name", r2."UpdatedAt" AS "UpdatedAt0", r2."UpdatedBy" AS "UpdatedBy0", s."RoleId" AS "RoleId0", s."PermissionId", s."CreatedAt" AS "CreatedAt1", s."CreatedBy" AS "CreatedBy1", s."DeletedAt" AS "DeletedAt1", s."DeletedBy" AS "DeletedBy1", s."Id" AS "Id1", s."UpdatedAt" AS "UpdatedAt1", s."UpdatedBy" AS "UpdatedBy1", s."Id0" AS "Id00", s."CreatedAt0" AS "CreatedAt00", s."CreatedBy0" AS "CreatedBy00", s."DeletedAt0" AS "DeletedAt00", s."DeletedBy0" AS "DeletedBy00", s."Description" AS "Description0", s."Name" AS "Name0", s."UpdatedAt0" AS "UpdatedAt00", s."UpdatedBy0" AS "UpdatedBy00"
+    FROM user_roles AS u1
+    INNER JOIN (
+        SELECT r1."Id", r1."CreatedAt", r1."CreatedBy", r1."DeletedAt", r1."DeletedBy", r1."Description", r1."Name", r1."UpdatedAt", r1."UpdatedBy"
+        FROM roles AS r1
+        WHERE r1."DeletedAt" IS NULL
+    ) AS r2 ON u1."RoleId" = r2."Id"
+    LEFT JOIN (
+        SELECT r3."RoleId", r3."PermissionId", r3."CreatedAt", r3."CreatedBy", r3."DeletedAt", r3."DeletedBy", r3."Id", r3."UpdatedAt", r3."UpdatedBy", p0."Id" AS "Id0", p0."CreatedAt" AS "CreatedAt0", p0."CreatedBy" AS "CreatedBy0", p0."DeletedAt" AS "DeletedAt0", p0."DeletedBy" AS "DeletedBy0", p0."Description", p0."Name", p0."UpdatedAt" AS "UpdatedAt0", p0."UpdatedBy" AS "UpdatedBy0"
+        FROM role_permissions AS r3
+        INNER JOIN (
+            SELECT p."Id", p."CreatedAt", p."CreatedBy", p."DeletedAt", p."DeletedBy", p."Description", p."Name", p."UpdatedAt", p."UpdatedBy"
+            FROM permissions AS p
+            WHERE p."DeletedAt" IS NULL
+        ) AS p0 ON r3."PermissionId" = p0."Id"
+        WHERE r3."DeletedAt" IS NULL
+    ) AS s ON r2."Id" = s."RoleId"
+    WHERE u1."DeletedAt" IS NULL
+) AS s0 ON u2."Id" = s0."UserId"
+ORDER BY u2."Email", u2."Id", s0."UserId", s0."RoleId", s0."Id0", s0."RoleId0", s0."PermissionId"
+2026-02-11 15:49:04.458 +07:00 [INF] HTTP GET /api/v1/users responded 200 in 166ms 
+2026-02-11 15:51:58.446 +07:00 [INF] Registered 8 endpoints in 377 milliseconds.
+2026-02-11 15:51:58.964 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:51:59.165 +07:00 [INF] SQL (6ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 15:51:59.187 +07:00 [INF] SQL (5ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 15:51:59.189 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:51:59.317 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 15:51:59.377 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 15:52:01.014 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 15:52:01.134 +07:00 [ERR] Unhandled system exception | /api/v1/users | 631f6b61-0412-4ab8-b42d-b788325af962
+System.InvalidOperationException: Property 'role' not found.
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 33
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 17
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:52:13.585 +07:00 [ERR] Unhandled system exception | /api/v1/users | 47ae655f-d1e0-4bc9-a736-274850eab13e
+System.InvalidOperationException: Property 'roles' not found.
+   at Infrastructure.Persistence.Query.FilterExtensions.BuildExpression[T](FilterCondition condition) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 33
+   at Infrastructure.Persistence.Query.FilterExtensions.ApplyFilters[T](IQueryable`1 query, IEnumerable`1 filters) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/FIlterExtensions.cs:line 15
+   at Infrastructure.Persistence.Query.EfListQueryProcessor`1.ExecuteAsync(IQueryable`1 source, ListQuery query, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Infrastructure/Persistence/Query/EfListQueryProcessor.cs:line 17
+   at Application.Users.GetUsers.GetUserHandler.Handle(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/Application/Users/GetUsers/GetUserHandler.cs:line 29
+   at Application.Behavior.TransactionBehavior`2.Handle(TRequest request, CancellationToken ct, Func`1 next) in /Volumes/SSD/Dotnet/FastNet/Application/Behavior/TransactionBehavior.cs:line 27
+   at API.Endpoints.User.GetUsersEndpoint.HandleAsync(ListQuery req, CancellationToken ct) in /Volumes/SSD/Dotnet/FastNet/API/Endpoints/User/GetUsersEndpoint.cs:line 37
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at FastEndpoints.Endpoint`2.ExecAsync(CancellationToken ct)
+   at NSwag.AspNetCore.Middlewares.SwaggerUiIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.RedirectToIndexMiddleware.Invoke(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at API.Middlewares.PermissionMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PermissionMiddleware.cs:line 48
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.InterfaceMiddlewareBinder.<>c__DisplayClass2_0.<<CreateMiddleware>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at API.Extensions.LoggingMiddlewareExtension.<>c.<<UseLoggingPlatform>b__0_0>d.MoveNext() in /Volumes/SSD/Dotnet/FastNet/API/Extensions/LoggingMiddlewareExtension.cs:line 16
+--- End of stack trace from previous location ---
+   at API.Middlewares.CorrelationIdMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/CorrelationMiddleware.cs:line 26
+   at API.Extensions.SecurityHeadersMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Extensions/HeaderExtension.cs:line 32
+   at API.Middlewares.PerformanceMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/PerformanceMiddleware.cs:line 22
+   at API.Middlewares.GlobalExceptionMiddleware.Invoke(HttpContext context) in /Volumes/SSD/Dotnet/FastNet/API/Middlewares/GlobalExceptionMiddleware.cs:line 27
+2026-02-11 15:57:54.226 +07:00 [INF] Registered 8 endpoints in 259 milliseconds.
+2026-02-11 15:57:54.829 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:57:54.958 +07:00 [INF] SQL (6ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 15:57:54.966 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 15:57:54.967 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:57:55.084 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 15:57:55.146 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 15:57:56.560 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 15:57:56.667 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 108ms 
+2026-02-11 15:57:57.925 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 386ms 
+2026-02-11 15:57:58.363 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 6ms 
+2026-02-11 15:59:49.860 +07:00 [INF] Registered 8 endpoints in 299 milliseconds.
+2026-02-11 15:59:50.432 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:59:50.564 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 15:59:50.571 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 15:59:50.573 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 15:59:50.689 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 15:59:50.748 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 15:59:53.574 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 15:59:53.688 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 115ms 
+2026-02-11 15:59:53.879 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 6ms 
+2026-02-11 15:59:54.311 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 316ms 
+2026-02-11 16:01:03.039 +07:00 [INF] Registered 8 endpoints in 202 milliseconds.
+2026-02-11 16:01:03.529 +07:00 [INF] SQL (10ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:01:03.661 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 16:01:03.669 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 16:01:03.670 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:01:03.785 +07:00 [INF] SQL (5ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 16:01:03.846 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 16:01:07.078 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 16:01:07.214 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 136ms 
+2026-02-11 16:01:07.397 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 5ms 
+2026-02-11 16:01:07.884 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 371ms 
+2026-02-11 16:02:20.504 +07:00 [INF] Registered 8 endpoints in 286 milliseconds.
+2026-02-11 16:02:21.117 +07:00 [INF] SQL (13ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:02:21.284 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 16:02:21.292 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 16:02:21.293 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:02:21.424 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 16:02:21.487 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 16:02:28.448 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 16:02:28.633 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 185ms 
+2026-02-11 16:02:28.813 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 14ms 
+2026-02-11 16:02:29.322 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 395ms 
+2026-02-11 16:03:35.143 +07:00 [INF] Registered 8 endpoints in 216 milliseconds.
+2026-02-11 16:03:35.656 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:03:35.786 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 16:03:35.793 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 16:03:35.794 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:03:35.907 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 16:03:35.964 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 16:03:36.679 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 16:03:36.783 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 103ms 
+2026-02-11 16:03:36.915 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 6ms 
+2026-02-11 16:03:37.373 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 309ms 
+2026-02-11 16:03:54.502 +07:00 [INF] Registered 8 endpoints in 229 milliseconds.
+2026-02-11 16:03:55.014 +07:00 [INF] SQL (10ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:03:55.151 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 16:03:55.158 +07:00 [INF] SQL (0ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 16:03:55.160 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:03:55.274 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 16:03:55.330 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 16:03:56.563 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 16:03:56.691 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 128ms 
+2026-02-11 16:03:56.923 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 10ms 
+2026-02-11 16:03:57.322 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 283ms 
+2026-02-11 16:04:17.779 +07:00 [INF] Registered 8 endpoints in 300 milliseconds.
+2026-02-11 16:04:18.350 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:04:18.485 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 16:04:18.493 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 16:04:18.494 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:04:18.608 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 16:04:18.664 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 16:04:20.960 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 16:04:21.069 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 109ms 
+2026-02-11 16:04:21.285 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 8ms 
+2026-02-11 16:04:21.680 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 264ms 
+2026-02-11 16:04:53.415 +07:00 [INF] Registered 8 endpoints in 291 milliseconds.
+2026-02-11 16:04:53.987 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:04:54.139 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 16:04:54.146 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 16:04:54.147 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:04:54.262 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 16:04:54.320 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 16:04:56.336 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 16:04:56.436 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 100ms 
+2026-02-11 16:04:56.628 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 9ms 
+2026-02-11 16:04:57.053 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 316ms 
+2026-02-11 16:05:46.684 +07:00 [INF] Registered 8 endpoints in 265 milliseconds.
+2026-02-11 16:05:47.295 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:05:47.426 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 16:05:47.434 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 16:05:47.435 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:05:47.560 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 16:05:47.645 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 16:05:49.558 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 16:05:49.669 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 111ms 
+2026-02-11 16:05:49.848 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 11ms 
+2026-02-11 16:05:50.268 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 299ms 
+2026-02-11 16:07:08.997 +07:00 [INF] Registered 8 endpoints in 292 milliseconds.
+2026-02-11 16:07:09.507 +07:00 [INF] SQL (10ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:07:09.647 +07:00 [INF] SQL (5ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 16:07:09.655 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 16:07:09.656 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:07:09.772 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 16:07:09.847 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 16:07:11.105 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 16:07:11.273 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 168ms 
+2026-02-11 16:07:11.442 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 8ms 
+2026-02-11 16:07:12.070 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 503ms 
+2026-02-11 16:07:12.070 +07:00 [WRN] Slow HTTP GET /swagger/v1/swagger.json responded 200 in 503ms 
+2026-02-11 16:08:33.129 +07:00 [INF] Registered 8 endpoints in 227 milliseconds.
+2026-02-11 16:08:33.659 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:08:33.794 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 16:08:33.802 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 16:08:33.803 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:08:33.946 +07:00 [INF] SQL (2ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 16:08:34.012 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 16:08:34.805 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 16:08:34.943 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 138ms 
+2026-02-11 16:08:35.198 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 6ms 
+2026-02-11 16:08:35.692 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 307ms 
+2026-02-11 16:10:14.905 +07:00 [INF] Registered 8 endpoints in 210 milliseconds.
+2026-02-11 16:10:15.397 +07:00 [INF] SQL (11ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:10:15.617 +07:00 [INF] SQL (6ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 16:10:15.631 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 16:10:15.638 +07:00 [INF] SQL (3ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:10:15.788 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 16:10:15.872 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 16:10:20.701 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 16:10:20.836 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 135ms 
+2026-02-11 16:10:20.982 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 5ms 
+2026-02-11 16:10:21.384 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 287ms 
+2026-02-11 16:11:18.852 +07:00 [INF] Registered 8 endpoints in 230 milliseconds.
+2026-02-11 16:11:19.372 +07:00 [INF] SQL (13ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:11:19.517 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 16:11:19.528 +07:00 [INF] SQL (2ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 16:11:19.530 +07:00 [INF] SQL (1ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:11:19.656 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 16:11:19.719 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 16:11:26.730 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 16:11:26.885 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 156ms 
+2026-02-11 16:11:27.023 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 11ms 
+2026-02-11 16:11:27.458 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 330ms 
+2026-02-11 16:12:05.957 +07:00 [INF] Registered 8 endpoints in 257 milliseconds.
+2026-02-11 16:12:06.449 +07:00 [INF] SQL (12ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:12:06.583 +07:00 [INF] SQL (4ms)
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+
+
+2026-02-11 16:12:06.590 +07:00 [INF] SQL (1ms)
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-02-11 16:12:06.591 +07:00 [INF] SQL (0ms)
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-02-11 16:12:06.706 +07:00 [INF] SQL (1ms)
+SELECT EXISTS (
+    SELECT 1
+    FROM users AS u
+    WHERE u."DeletedAt" IS NULL)
+2026-02-11 16:12:06.765 +07:00 [INF] Listening on http://localhost:5284
+2026-02-11 16:12:09.441 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-02-11 16:12:09.630 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 189ms 
+2026-02-11 16:12:09.785 +07:00 [INF] HTTP GET /swagger/index.html responded 200 in 7ms 
+2026-02-11 16:12:10.267 +07:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 345ms 
