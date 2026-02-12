@@ -19,6 +19,11 @@
     
     <PackageReference Include="Microsoft.IdentityModel.Tokens" />
     <PackageReference Include="FastEndpoints.Security" />
+
+    <PackageReference Include="Quartz" />
+    <PackageReference Include="Quartz.Extensions.DependencyInjection" />
+    <PackageReference Include="Quartz.Extensions.Hosting" />
+    <PackageReference Include="Quartz.Serialization.Json" />
   </ItemGroup>
 
   <ItemGroup>

@@ -19,12 +19,21 @@ public sealed class JwtTokenGenerator : IJwtTokenGenerator
 
   public string GenerateToken(User user)
   {
+    var now = DateTime.UtcNow;
+    var expires = now.AddMinutes(_jwtSettings.ExpiryMinutes);
     var claims = new List<Claim>
     {
       new Claim(JwtRegisteredClaimNames.NameId, user.Id.ToString()),
       new Claim(JwtRegisteredClaimNames.Name, $"{user.FirstName} {user.LastName}"),
       new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
       new Claim(JwtRegisteredClaimNames.Email, user.Email),
+      new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), // unique token id
+      new Claim(JwtRegisteredClaimNames.Iat, new DateTimeOffset(now).ToUnixTimeSeconds().ToString(),
+        ClaimValueTypes.Integer64),
+      new Claim(JwtRegisteredClaimNames.Exp, new DateTimeOffset(expires).ToUnixTimeSeconds().ToString(),
+        ClaimValueTypes.Integer64),
+      new Claim(JwtRegisteredClaimNames.Aud, _jwtSettings.Audience),
+      new Claim(JwtRegisteredClaimNames.Iss, _jwtSettings.Issuer),
     };
     claims.AddRange(user.UserRoles.Select(role => new Claim(ClaimTypes.Role, role.Role.Name)));
 
