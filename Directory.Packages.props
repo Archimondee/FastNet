@@ -29,5 +29,8 @@
     <PackageVersion Include="Quartz.Extensions.DependencyInjection" Version="3.15.1" />
     <PackageVersion Include="Quartz.Extensions.Hosting" Version="3.15.1" />
     <PackageVersion Include="Quartz.Serialization.Json" Version="3.15.1" />
+
+    <PackageVersion Include="MailKit" Version="4.14.0" />
+    <PackageVersion Include="MimeKit" Version="4.14.0" />
   </ItemGroup>
 </Project>
