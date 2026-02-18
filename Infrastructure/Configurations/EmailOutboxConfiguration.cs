@@ -14,6 +14,8 @@ public class EmailOutboxConfiguration : IEntityTypeConfiguration<EmailOutbox>
 
     builder.Property(x => x.To).IsRequired();
 
+    builder.Property(x => x.Subject).IsRequired();
+
     builder.Property(x => x.Template).IsRequired();
 
     builder.Property(x => x.PayloadJson).IsRequired();

@@ -31,6 +31,7 @@ public class EmailSmtpServices : IEmailSender
 
   public async Task SendEmailAsync(EmailOutbox email, CancellationToken ct = default)
   {
+    Console.WriteLine(_smtp);
     if (string.IsNullOrWhiteSpace(email.To))
       throw new ArgumentException("Email recipient is required");
 
@@ -45,10 +46,12 @@ public class EmailSmtpServices : IEmailSender
         using var client = new SmtpClient();
         client.Timeout = 15000;
 
+        client.ServerCertificateValidationCallback = (sender, certificate, chain, errors) => true;
+
         await client.ConnectAsync(
           _smtp.Host,
           _smtp.Port,
-          SecureSocketOptions.StartTls,
+          SecureSocketOptions.StartTlsWhenAvailable,
           ct);
 
         await client.AuthenticateAsync(
@@ -60,6 +63,9 @@ public class EmailSmtpServices : IEmailSender
         await client.DisconnectAsync(true, ct);
 
         email.ProviderMessageId = message.MessageId;
+        email.Status = EmailStatus.Sent;
+        email.SentAt = DateTime.UtcNow;
+        email.ErrorMessage = null;
 
         _logger.LogInformation(
           "Email sent to {Recipient} (Attempt {Attempt})",
@@ -81,6 +87,9 @@ public class EmailSmtpServices : IEmailSender
       }
       catch (Exception ex)
       {
+        email.Status = EmailStatus.Failed;
+        email.ErrorMessage = ex.Message;
+
         _logger.LogError(ex,
           "Email sending failed permanently for {Recipient}",
           email.To);
@@ -102,13 +111,14 @@ public class EmailSmtpServices : IEmailSender
         _smtp.SenderEmail));
 
     message.To.Add(MailboxAddress.Parse(email.To!));
-    message.Subject = email.Template;
+    message.Subject = email.Subject;
 
     if (!string.IsNullOrEmpty(email.PayloadJson))
     {
       var html = await _renderer.RenderAsync(
         email.Template,
         email.PayloadJson);
+
 
       message.Body = new BodyBuilder
       {

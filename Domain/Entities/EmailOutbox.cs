@@ -6,6 +6,8 @@ public class EmailOutbox
 
   public string? To { get; set; }
 
+  public string Subject { get; set; }
+
   public string Template { get; set; } = default!;
 
   public string? PayloadJson { get; set; }

@@ -49,8 +49,8 @@ public static class DependencyInjection
 
         services.AddAuthentication();
         services.AddAuthorization();
-        services.AddSingleton(sp =>
-            configuration.GetSection("Email:Smtp").Get<SmtpOptions>()!);
+        services.Configure<SmtpOptions>(
+            configuration.GetSection("Email:Smtp"));
 
         services.AddScoped(typeof(IListQueryProcessor<>), typeof(EfListQueryProcessor<>));
         services.AddQuartzConfiguration(configuration);
