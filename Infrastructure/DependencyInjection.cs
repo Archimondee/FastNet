@@ -1,6 +1,7 @@
 using Application.Interface;
 using FastEndpoints.Security;
 using Infrastructure.Auth;
+using Infrastructure.Email;
 using Infrastructure.Persistence;
 using Infrastructure.Persistence.Query;
 using Infrastructure.Scheduling;
@@ -48,10 +49,18 @@ public static class DependencyInjection
 
         services.AddAuthentication();
         services.AddAuthorization();
+        services.AddSingleton(sp =>
+            configuration.GetSection("Email:Smtp").Get<SmtpOptions>()!);
 
         services.AddScoped(typeof(IListQueryProcessor<>), typeof(EfListQueryProcessor<>));
         services.AddQuartzConfiguration(configuration);
         services.AddScoped<IJobScheduler, QuartzJobScheduler>();
+        services.AddSingleton(new RateLimiter(
+            limit: 20,
+            interval: TimeSpan.FromMinutes(1)));
+        services.AddScoped<IEmailTemplateRenderer, TemplateRenderer>();
+        services.AddScoped<IEmailSender, EmailSmtpServices>();
+
         return services;
     }
 }

@@ -11,6 +11,8 @@ public interface IAppDbContext
 
     DbSet<UserRole> UserRoles { get; }
 
+    DbSet<EmailOutbox> EmailOutboxes { get; }
+
     DbSet<Permission> Permissions { get; }
 
     DbSet<RolePermission> RolePermissions { get; }

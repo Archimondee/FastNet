@@ -12,6 +12,16 @@ public static class QuartzConfiguration
     IConfiguration configuration
   )
   {
+    var jobConfigs = configuration
+      .GetSection("Quartz:QuartzJobs")
+      .Get<List<QuartzJobConfig>>() ?? new();
+
+    var jobTypeMap = new Dictionary<QuartzJobType, Type>
+    {
+      { QuartzJobType.ExampleJob, typeof(ExampleJob) },
+      { QuartzJobType.EmailDispatcherJob, typeof(EmailDispatcherJob) }
+    };
+
     services.AddQuartz(q =>
     {
       q.UseMicrosoftDependencyInjectionJobFactory();
@@ -24,20 +34,38 @@ public static class QuartzConfiguration
       q.AddSchedulerListener<QuartzScheduleListener>();
       q.AddJobListener<QuartzJobListener>();
 
-      // Testing job scheduler
-      var jobKey = new JobKey("exampleJob");
-      q.AddJob<ExampleJob>(opts => opts.WithIdentity(jobKey));
+      foreach (var jobConfig in jobConfigs.Where(x => x.Enabled))
+      {
+        if (!jobTypeMap.TryGetValue(jobConfig.Type, out var jobType))
+          continue;
 
-      q.AddTrigger(opts => opts
-        .ForJob(jobKey)
-        .WithIdentity("example-trigger")
-        .StartNow()
-        .WithSimpleSchedule(x => x
-          .WithIntervalInSeconds(10)
-          .RepeatForever()));
+        var jobKey = new JobKey(jobType.Name);
+
+        q.AddJob(jobType, jobKey, _ => { });
+
+        q.AddTrigger(trigger => trigger
+          .ForJob(jobKey)
+          .WithIdentity($"{jobKey.Name}-trigger")
+          .WithCronSchedule(jobConfig.Cron));
+      }
     });
     services.Configure<QuartzOptions>(configuration.GetSection("Quartz"));
     services.AddQuartzHostedService(options => { options.WaitForJobsToComplete = true; });
     return services;
   }
+}
+
+public enum QuartzJobType
+{
+  ExampleJob,
+  EmailDispatcherJob
+}
+
+public class QuartzJobConfig
+{
+  public QuartzJobType Type { get; set; }
+
+  public string Cron { get; set; } = "0 */5 * * * ?";
+
+  public bool Enabled { get; set; } = true;
 }
